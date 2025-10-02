@@ -16,7 +16,7 @@ namespace Casino_Forms_Project
 {
     public partial class blackjackForm : Form
     {
-        // form variables
+        // variables
         int bet = 0;
         int playerHand = 0, dealerHand = 0;
         string pc1, pc2, dc1, dc2;
@@ -317,3 +317,9 @@ namespace Casino_Forms_Project
         }
     }
 }
+/* future changes
+debug
+visuals
+better gui
+split
+*/
