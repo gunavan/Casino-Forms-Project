@@ -14,45 +14,48 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class blackjackForm : Form
+    public partial class BlackjackForm : Form
     {
         // variables
         int bet = 0;
         int playerHand = 0, dealerHand = 0;
         string pc1, pc2, dc1, dc2;
         int DECKAMMOUNTS = 4;
+        bool gameStart = false;
         // suits and values from deck in main
         List<string> suits = new List<string>();
         List<string> values = new List<string>();
         private Random rng = new Random();
         // ace counter
         int playerAces = 0, dealerAces = 0;
-        public blackjackForm()
+        public BlackjackForm()
         {
             InitializeComponent();
-            blackjackMoneyForm bjmf = new blackjackMoneyForm();
+            BlackjackMoneyForm bjmf = new BlackjackMoneyForm();
             // adding decks
             suits = new List<string>(addDecks("suits", DECKAMMOUNTS));
             values = new List<string>(addDecks("values", DECKAMMOUNTS));
             // getting money to enter
             bjmf.ShowDialog();
-            playerMoneyLabel.Text = mainForm.GlobalData.riskMoney.ToString("C");
-            playerBalanceLabel.Text = mainForm.GlobalData.playerMoney.ToString("C");
+            playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
+            playerBalanceLabel.Text = GlobalData.playerMoney.ToString("C");
             // remaining cards
             cardsRemainingLabel.Text = values.Count.ToString();
         }
+
         private static List<string> addDecks(string deck, int count)
         {
             List<string> r = new List<string>();
             List<string> t = new List<string>();
             // getting suits or values
-            if (deck == "suits") { t = new List<string>(mainForm.GlobalData.deckSuits); }
-            else if (deck == "values") { t = new List<string>(mainForm.GlobalData.deckValues); }
+            if (deck == "suits") { t = new List<string>(GlobalData.deckSuits); }
+            else if (deck == "values") { t = new List<string>(GlobalData.deckValues); }
             // adding copies
             while (count-- > 0) { r.AddRange(t); }
 
             return r;
         }
+
         private void oneButton_Click(object sender, EventArgs e)
         {
             bet += 1;
@@ -82,6 +85,7 @@ namespace Casino_Forms_Project
             bet += 100;
             currentBetLabel.Text = bet.ToString("C");
         }
+
         private void clearBetButton_Click(object sender, EventArgs e)
         {
             bet = 0;
@@ -113,23 +117,61 @@ namespace Casino_Forms_Project
             cardsRemainingLabel.Text = values.Count.ToString();
         }
 
+        private void screen()
+        {
+            if (gameStart) {
+                // phase 1
+                oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;
+                clearBetButton.Visible = false; betButton.Visible = false;
+                // phase 2
+                hitButton.Visible = true; standButton.Visible = true;
+                playerHandLabel.Visible = true; dealerHandLabel.Visible = true; }
+            else {
+                playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
+                playerBalanceLabel.Text = GlobalData.playerMoney.ToString("C");
+                cardsRemainingLabel.Text = values.Count.ToString();
+                // reset bet
+                bet = 0; currentBetLabel.Text = "";
+                // cycle buttons
+                // phase 1
+                oneButton.Visible = true; fiveButton.Visible = true; tenButton.Visible = true; twfivButton.Visible = true; hundButton.Visible = true;
+                clearBetButton.Visible = true; betButton.Visible = true;
+                winloseLabel.Visible = false; reasonLabel.Visible = false;
+                // phase 2
+                hitButton.Visible = false; standButton.Visible = false; // b
+                playerHandLabel.Visible = false; dealerHandLabel.Visible = false;
+                // reset hands and textboxes
+                playerHand = 0; dealerHand = 0;
+                pc1 = ""; pc2 = ""; dc1 = ""; dc2 = "";
+                playerHandLabel.Text = ""; dealerHandLabel.Text = "";
+                // aces
+                playerAces = 0; dealerAces = 0;
+
+                // for testing
+                playerExpandedHand.Visible = false; dealerExpandedHand.Visible = false;
+                playerExpandedHand.Text = ""; dealerExpandedHand.Text = "";
+
+                winloseLabel.Text = ""; }
+        }
+
         private void betButton_Click(object sender, EventArgs e)
         {
-            if (bet > mainForm.GlobalData.riskMoney) {
+            if (bet > GlobalData.riskMoney) {
                 MessageBox.Show("You cannot bet more than you have");
                 bet = 0;
                 currentBetLabel.Text = bet.ToString("C");
                 return;
             }
-            mainForm.GlobalData.riskMoney -= bet;
-            playerMoneyLabel.Text = mainForm.GlobalData.riskMoney.ToString("C");
+            if (bet == 0) {
+                MessageBox.Show("You must place a bet before starting");
+                return;
+            }
+            GlobalData.riskMoney -= bet;
+            playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
             // cycle buttons
-            // phase 1
-            oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;
-            clearBetButton.Visible = false; betButton.Visible = false;
-            // phase 2
-            hitButton.Visible = true; standButton.Visible = true;
-            playerHandLabel.Visible = true; dealerHandLabel.Visible = true;
+            gameStart = true;
+
+            screen();
 
             // testing
             playerExpandedHand.Visible = true; dealerExpandedHand.Visible = true;
@@ -179,6 +221,7 @@ namespace Casino_Forms_Project
             else if (card == "j" || card == "q" || card == "k") { return 10; }
             else { return int.Parse(card); }
         }
+
         private void startGame()
         {
             string fakeDealer = "";
@@ -220,50 +263,39 @@ namespace Casino_Forms_Project
             // cards remaining
             cardsRemainingLabel.Text = values.Count.ToString();
         }
-        private async void restartGame()
+
+        private void restartGame()
         {
             // if no money left
-            if (mainForm.GlobalData.riskMoney <= 0) {
+            if (GlobalData.riskMoney <= 0) {
                 MessageBox.Show("You are out of money! \nBetter luck Next Time :(");
                 this.Close();
             }
-            // reset bet
-            bet = 0; currentBetLabel.Text = "";
-            // cycle buttons
-            // phase 1
-            oneButton.Visible = true; fiveButton.Visible = true; tenButton.Visible = true; twfivButton.Visible = true; hundButton.Visible = true;
-            clearBetButton.Visible = true; betButton.Visible = true;
-            winloseLabel.Visible = false; reasonLabel.Visible = false;
-            // phase 2
-            hitButton.Visible = false; standButton.Visible = false; // b
-            playerHandLabel.Visible = false; dealerHandLabel.Visible = false;
-            // reset hands and textboxes
-            playerHand = 0; dealerHand = 0; 
-            pc1 = ""; pc2 = ""; dc1 = ""; dc2 = "";
-            playerHandLabel.Text = ""; dealerHandLabel.Text = "";
-            // aces
-            playerAces = 0; dealerAces = 0;
-
+            screen();
             // for testing
             playerExpandedHand.Visible = false; dealerExpandedHand.Visible = false;
             playerExpandedHand.Text = ""; dealerExpandedHand.Text = "";
 
             winloseLabel.Text = "";
-            // if half cards are remaining NOT WORKING
-            if (values.Count < (52 * DECKAMMOUNTS) / 2) {
-                // problem here
-                suits.Clear();
-                values.Clear();
-                suits = new List<string>(addDecks("suits", DECKAMMOUNTS));
-                values = new List<string>(addDecks("values", DECKAMMOUNTS));
-                // textbox
-                shuffleLabel.Visible = true;
-                await waitTimer(3);
-                shuffleLabel.Visible = false;
-            }
+            // if half cards are remaining of deck ammounts, shuffle
+            if (values.Count < (52 * DECKAMMOUNTS) / 2) { shuffle(); }
             // cards remaining
             cardsRemainingLabel.Text = values.Count.ToString();
         }
+
+        private async void shuffle()
+        {
+            // problem here
+            suits.Clear();
+            values.Clear();
+            suits = new List<string>(addDecks("suits", DECKAMMOUNTS));
+            values = new List<string>(addDecks("values", DECKAMMOUNTS));
+            // textbox
+            shuffleLabel.Visible = true;
+            await waitTimer(3);
+            shuffleLabel.Visible = false;
+        }
+
         private async void playerWin(int i)
         {
             string temp = "";
@@ -278,10 +310,12 @@ namespace Casino_Forms_Project
             standButton.Visible = false;
             await waitTimer(3);
             // updater
-            mainForm.GlobalData.riskMoney += (bet * 2);
-            playerMoneyLabel.Text = (mainForm.GlobalData.riskMoney).ToString("C");
+            GlobalData.riskMoney += (bet * 2);
+            playerMoneyLabel.Text = (GlobalData.riskMoney).ToString("C");
+            gameStart = false;
             restartGame();
         }
+
         private async void playerLose(int i)
         {
             string temp = "";
@@ -295,8 +329,10 @@ namespace Casino_Forms_Project
             hitButton.Visible = false;
             standButton.Visible = false;
             await waitTimer(3);
+            gameStart = false;
             restartGame();
         }
+
         private async void push()
         {
             winloseLabel.Visible = true; reasonLabel.Visible = true;
@@ -307,18 +343,54 @@ namespace Casino_Forms_Project
             standButton.Visible = false;
             await waitTimer(3);
             // updater
-            mainForm.GlobalData.riskMoney += bet;
-            playerMoneyLabel.Text = (mainForm.GlobalData.riskMoney).ToString("C");
+            GlobalData.riskMoney += bet;
+            playerMoneyLabel.Text = (GlobalData.riskMoney).ToString("C");
+            gameStart = false;
             restartGame();
         }
+
         private async Task waitTimer(int secs)
         {
             await Task.Delay(secs * 1000);
         }
+
+        private void shuffleMenuItem_Click(object sender, EventArgs e)
+        {
+            shuffle();
+            screen();
+        }
+
+        private void addMenuItem_Click(object sender, EventArgs e)
+        {
+            GlobalData.riskMoney += 500;
+            screen();
+        }
+
+        private void deckQuantityMenuItem_Click(object sender, EventArgs e)
+        {
+            DECKAMMOUNTS++;
+            shuffle();
+            screen();
+        }
+
+        private void removeDeckMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DECKAMMOUNTS == 1) {
+                MessageBox.Show("Cannot have less than 1 deck");
+                return;
+            }
+            DECKAMMOUNTS--;
+            shuffle();
+            screen();
+        }
+
+        private void refreshScreenMenuItem_Click(object sender, EventArgs e)
+        {
+            screen();
+        }
     }
 }
 /* future changes
-debug
 visuals
 better gui
 split

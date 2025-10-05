@@ -1,6 +1,6 @@
 ﻿namespace Casino_Forms_Project
 {
-    partial class blackjackForm
+    partial class BlackjackForm
     {
         /// <summary>
         /// Required designer variable.
@@ -52,13 +52,21 @@
             this.winloseLabel = new System.Windows.Forms.Label();
             this.reasonLabel = new System.Windows.Forms.Label();
             this.shuffleLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shuffleMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addDeckMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshScreenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeDeckMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // playerMoneyLabel
             // 
             this.playerMoneyLabel.BackColor = System.Drawing.Color.Transparent;
             this.playerMoneyLabel.Font = new System.Drawing.Font("Javanese Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerMoneyLabel.Location = new System.Drawing.Point(140, 7);
+            this.playerMoneyLabel.Location = new System.Drawing.Point(140, 37);
             this.playerMoneyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerMoneyLabel.Name = "playerMoneyLabel";
             this.playerMoneyLabel.Size = new System.Drawing.Size(128, 30);
@@ -69,7 +77,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Javanese Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 7);
+            this.label2.Location = new System.Drawing.Point(9, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 30);
@@ -350,7 +358,64 @@
             this.shuffleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.shuffleLabel.Visible = false;
             // 
-            // blackjackForm
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.debugToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(736, 24);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // debugToolStripMenuItem
+            // 
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.shuffleMenuItem,
+            this.addMenuItem,
+            this.addDeckMenuItem,
+            this.removeDeckMenuItem,
+            this.refreshScreenMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.debugToolStripMenuItem.Text = "Debug";
+            // 
+            // shuffleMenuItem
+            // 
+            this.shuffleMenuItem.Name = "shuffleMenuItem";
+            this.shuffleMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shuffleMenuItem.Text = "Shuffle";
+            this.shuffleMenuItem.Click += new System.EventHandler(this.shuffleMenuItem_Click);
+            // 
+            // addMenuItem
+            // 
+            this.addMenuItem.Name = "addMenuItem";
+            this.addMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addMenuItem.Text = "Add Balance";
+            this.addMenuItem.Click += new System.EventHandler(this.addMenuItem_Click);
+            // 
+            // addDeckMenuItem
+            // 
+            this.addDeckMenuItem.Name = "addDeckMenuItem";
+            this.addDeckMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addDeckMenuItem.Text = "Add Deck";
+            this.addDeckMenuItem.Click += new System.EventHandler(this.deckQuantityMenuItem_Click);
+            // 
+            // refreshScreenMenuItem
+            // 
+            this.refreshScreenMenuItem.Name = "refreshScreenMenuItem";
+            this.refreshScreenMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshScreenMenuItem.Text = "Refresh Screen";
+            this.refreshScreenMenuItem.Click += new System.EventHandler(this.refreshScreenMenuItem_Click);
+            // 
+            // removeDeckMenuItem
+            // 
+            this.removeDeckMenuItem.Name = "removeDeckMenuItem";
+            this.removeDeckMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeDeckMenuItem.Text = "Remove Deck";
+            this.removeDeckMenuItem.Click += new System.EventHandler(this.removeDeckMenuItem_Click);
+            // 
+            // BlackjackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -380,11 +445,16 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.playerMoneyLabel);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "blackjackForm";
+            this.Name = "BlackjackForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "blackjackForm";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -413,5 +483,12 @@
         private System.Windows.Forms.Label winloseLabel;
         private System.Windows.Forms.Label reasonLabel;
         private System.Windows.Forms.Label shuffleLabel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shuffleMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addDeckMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refreshScreenMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeDeckMenuItem;
     }
 }

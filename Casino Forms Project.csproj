@@ -46,34 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="blackjackForm.cs">
+    <Compile Include="BlackjackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="blackjackForm.Designer.cs">
-      <DependentUpon>blackjackForm.cs</DependentUpon>
+    <Compile Include="BlackjackForm.Designer.cs">
+      <DependentUpon>BlackjackForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="blackjackMoneyForm.cs">
+    <Compile Include="BlackjackMoneyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="blackjackMoneyForm.Designer.cs">
-      <DependentUpon>blackjackMoneyForm.cs</DependentUpon>
+    <Compile Include="BlackjackMoneyForm.Designer.cs">
+      <DependentUpon>BlackjackMoneyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="mainForm.cs">
+    <Compile Include="GlobalData.cs" />
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainForm.Designer.cs">
-      <DependentUpon>mainForm.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="blackjackForm.resx">
-      <DependentUpon>blackjackForm.cs</DependentUpon>
+    <EmbeddedResource Include="BlackjackForm.resx">
+      <DependentUpon>BlackjackForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="blackjackMoneyForm.resx">
-      <DependentUpon>blackjackMoneyForm.cs</DependentUpon>
+    <EmbeddedResource Include="BlackjackMoneyForm.resx">
+      <DependentUpon>BlackjackMoneyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mainForm.resx">
-      <DependentUpon>mainForm.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

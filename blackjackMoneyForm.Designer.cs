@@ -1,6 +1,6 @@
 ﻿namespace Casino_Forms_Project
 {
-    partial class blackjackMoneyForm
+    partial class BlackjackMoneyForm
     {
         /// <summary>
         /// Required designer variable.

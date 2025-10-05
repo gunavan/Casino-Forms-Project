@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class blackjackMoneyForm : Form
+    public partial class BlackjackMoneyForm : Form
     {
-        public blackjackMoneyForm()
+        public BlackjackMoneyForm()
         {
             InitializeComponent();
-            playerMoneyLabel.Text = mainForm.GlobalData.playerMoney.ToString("C");
+            playerMoneyLabel.Text = GlobalData.playerMoney.ToString("C");
             this.ControlBox = false;
             textBox1.KeyDown += textbox1_KeyDown;
         }
@@ -34,7 +34,7 @@ namespace Casino_Forms_Project
                 textBox1.Focus();
                 return;
             }
-            if (int.Parse(textBox1.Text) > mainForm.GlobalData.playerMoney) {
+            if (int.Parse(textBox1.Text) > GlobalData.playerMoney) {
                 MessageBox.Show("You dont have that much money");
                 textBox1.Text = "";
                 textBox1.Focus();
@@ -53,8 +53,8 @@ namespace Casino_Forms_Project
                 return;
             }
 
-            mainForm.GlobalData.riskMoney = int.Parse(textBox1.Text);
-            mainForm.GlobalData.playerMoney -= mainForm.GlobalData.riskMoney;
+            GlobalData.riskMoney = int.Parse(textBox1.Text);
+            GlobalData.playerMoney -= GlobalData.riskMoney;
             this.Close();
         }
     }
