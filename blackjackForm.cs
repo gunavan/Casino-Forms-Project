@@ -98,7 +98,7 @@ namespace Casino_Forms_Project
             string newCard = cardFromDeck();
             playerHand += cardValue(newCard);
             // checking for ace
-            if (newCard == "a") { playerAces++; }
+            if (newCard == "A") { playerAces++; }
             // if over 21 with new card, and if ace in first hand
             if (playerHand > 21 && playerAces != 0) {
                 playerHand -= 10;
@@ -187,7 +187,7 @@ namespace Casino_Forms_Project
                 string newCard = cardFromDeck();
                 dealerHand += cardValue(newCard);
                 // dealer ace counter
-                if (newCard == "a") { dealerAces++; }
+                if (newCard == "A") { dealerAces++; }
                 if (dealerHand > 21 && dealerAces != 0) {
                     dealerHand -= 10;
                     dealerAces--;
@@ -217,8 +217,8 @@ namespace Casino_Forms_Project
 
         private int cardValue(string card)
         {
-            if (card == "a") { return 11; }
-            else if (card == "j" || card == "q" || card == "k") { return 10; }
+            if (card == "A") { return 11; }
+            else if (card == "J" || card == "Q" || card == "K") { return 10; }
             else { return int.Parse(card); }
         }
 
@@ -236,10 +236,8 @@ namespace Casino_Forms_Project
             dealerHand = cardValue(dc1) + cardValue(dc2);
             fakeDealer = dc1;
             // counting aces
-            if (pc1 == "a") { playerAces++; }
-            if (pc2 == "a") { playerAces++; }
-            if (dc1 == "a") { dealerAces++; }
-            if (dc2 == "a") { dealerAces++; }
+            if (pc1 == "A") { playerAces++; } if (pc2 == "A") { playerAces++; }
+            if (dc1 == "A") { dealerAces++; } if (dc2 == "A") { dealerAces++; }
             // checking if over 21 on first hand. player and dealer
             if (playerHand > 21 && (playerAces != 0)) {
                 playerHand -= 10;
@@ -253,7 +251,7 @@ namespace Casino_Forms_Project
                 hitButton.Visible = false;
             }
             // output
-            playerHandLabel.Text = playerHand.ToString();
+            playerHandLabel.Text = pc1 + " " + pc2;
             dealerHandLabel.Text = fakeDealer + " + ?";
 
             // for testing

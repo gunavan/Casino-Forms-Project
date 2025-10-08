@@ -57,8 +57,8 @@
             this.shuffleMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addDeckMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshScreenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeDeckMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshScreenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -252,10 +252,10 @@
             // 
             this.playerHandLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.playerHandLabel.Font = new System.Drawing.Font("Javanese Text", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerHandLabel.Location = new System.Drawing.Point(240, 340);
+            this.playerHandLabel.Location = new System.Drawing.Point(15, 359);
             this.playerHandLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerHandLabel.Name = "playerHandLabel";
-            this.playerHandLabel.Size = new System.Drawing.Size(191, 84);
+            this.playerHandLabel.Size = new System.Drawing.Size(698, 199);
             this.playerHandLabel.TabIndex = 8;
             this.playerHandLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.playerHandLabel.Visible = false;
@@ -264,10 +264,10 @@
             // 
             this.dealerHandLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.dealerHandLabel.Font = new System.Drawing.Font("Javanese Text", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dealerHandLabel.Location = new System.Drawing.Point(240, 182);
+            this.dealerHandLabel.Location = new System.Drawing.Point(15, 69);
             this.dealerHandLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dealerHandLabel.Name = "dealerHandLabel";
-            this.dealerHandLabel.Size = new System.Drawing.Size(191, 84);
+            this.dealerHandLabel.Size = new System.Drawing.Size(698, 199);
             this.dealerHandLabel.TabIndex = 8;
             this.dealerHandLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.dealerHandLabel.Visible = false;
@@ -298,11 +298,11 @@
             // playerExpandedHand
             // 
             this.playerExpandedHand.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.playerExpandedHand.Font = new System.Drawing.Font("Javanese Text", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerExpandedHand.Location = new System.Drawing.Point(15, 442);
+            this.playerExpandedHand.Font = new System.Drawing.Font("Javanese Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerExpandedHand.Location = new System.Drawing.Point(15, 565);
             this.playerExpandedHand.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerExpandedHand.Name = "playerExpandedHand";
-            this.playerExpandedHand.Size = new System.Drawing.Size(698, 84);
+            this.playerExpandedHand.Size = new System.Drawing.Size(206, 30);
             this.playerExpandedHand.TabIndex = 8;
             this.playerExpandedHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.playerExpandedHand.Visible = false;
@@ -310,11 +310,11 @@
             // dealerExpandedHand
             // 
             this.dealerExpandedHand.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.dealerExpandedHand.Font = new System.Drawing.Font("Javanese Text", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dealerExpandedHand.Location = new System.Drawing.Point(15, 81);
+            this.dealerExpandedHand.Font = new System.Drawing.Font("Javanese Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerExpandedHand.Location = new System.Drawing.Point(253, 565);
             this.dealerExpandedHand.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dealerExpandedHand.Name = "dealerExpandedHand";
-            this.dealerExpandedHand.Size = new System.Drawing.Size(698, 84);
+            this.dealerExpandedHand.Size = new System.Drawing.Size(206, 31);
             this.dealerExpandedHand.TabIndex = 8;
             this.dealerExpandedHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.dealerExpandedHand.Visible = false;
@@ -348,11 +348,11 @@
             // shuffleLabel
             // 
             this.shuffleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.shuffleLabel.Font = new System.Drawing.Font("Javanese Text", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shuffleLabel.Location = new System.Drawing.Point(15, 234);
+            this.shuffleLabel.Font = new System.Drawing.Font("Javanese Text", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shuffleLabel.Location = new System.Drawing.Point(15, 268);
             this.shuffleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.shuffleLabel.Name = "shuffleLabel";
-            this.shuffleLabel.Size = new System.Drawing.Size(698, 97);
+            this.shuffleLabel.Size = new System.Drawing.Size(694, 91);
             this.shuffleLabel.TabIndex = 5;
             this.shuffleLabel.Text = "DECK WAS RESHUFFLED";
             this.shuffleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -383,37 +383,37 @@
             // shuffleMenuItem
             // 
             this.shuffleMenuItem.Name = "shuffleMenuItem";
-            this.shuffleMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shuffleMenuItem.Size = new System.Drawing.Size(151, 22);
             this.shuffleMenuItem.Text = "Shuffle";
             this.shuffleMenuItem.Click += new System.EventHandler(this.shuffleMenuItem_Click);
             // 
             // addMenuItem
             // 
             this.addMenuItem.Name = "addMenuItem";
-            this.addMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addMenuItem.Size = new System.Drawing.Size(151, 22);
             this.addMenuItem.Text = "Add Balance";
             this.addMenuItem.Click += new System.EventHandler(this.addMenuItem_Click);
             // 
             // addDeckMenuItem
             // 
             this.addDeckMenuItem.Name = "addDeckMenuItem";
-            this.addDeckMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addDeckMenuItem.Size = new System.Drawing.Size(151, 22);
             this.addDeckMenuItem.Text = "Add Deck";
             this.addDeckMenuItem.Click += new System.EventHandler(this.deckQuantityMenuItem_Click);
-            // 
-            // refreshScreenMenuItem
-            // 
-            this.refreshScreenMenuItem.Name = "refreshScreenMenuItem";
-            this.refreshScreenMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.refreshScreenMenuItem.Text = "Refresh Screen";
-            this.refreshScreenMenuItem.Click += new System.EventHandler(this.refreshScreenMenuItem_Click);
             // 
             // removeDeckMenuItem
             // 
             this.removeDeckMenuItem.Name = "removeDeckMenuItem";
-            this.removeDeckMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeDeckMenuItem.Size = new System.Drawing.Size(151, 22);
             this.removeDeckMenuItem.Text = "Remove Deck";
             this.removeDeckMenuItem.Click += new System.EventHandler(this.removeDeckMenuItem_Click);
+            // 
+            // refreshScreenMenuItem
+            // 
+            this.refreshScreenMenuItem.Name = "refreshScreenMenuItem";
+            this.refreshScreenMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.refreshScreenMenuItem.Text = "Refresh Screen";
+            this.refreshScreenMenuItem.Click += new System.EventHandler(this.refreshScreenMenuItem_Click);
             // 
             // BlackjackForm
             // 
