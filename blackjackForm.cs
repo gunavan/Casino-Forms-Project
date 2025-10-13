@@ -25,6 +25,7 @@ namespace Casino_Forms_Project
         // suits and values from deck in main
         List<string> suits = new List<string>();
         List<string> values = new List<string>();
+        Dictionary<string, string> ascii = new Dictionary<string, string>(GlobalData.asciiCards);
         private Random rng = new Random();
         // ace counter
         int playerAces = 0, dealerAces = 0;
@@ -92,6 +93,74 @@ namespace Casino_Forms_Project
             currentBetLabel.Text = bet.ToString("C");
         }
 
+        private void screen()
+        {
+            if (gameStart)
+            {
+                // phase 1
+                oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;
+                clearBetButton.Visible = false; betButton.Visible = false;
+                // phase 2
+                hitButton.Visible = true; standButton.Visible = true;
+                playerExpandedHand.Visible = true; dealerExpandedHand.Visible = true;
+            }
+            else
+            {
+                playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
+                playerBalanceLabel.Text = GlobalData.playerMoney.ToString("C");
+                cardsRemainingLabel.Text = values.Count.ToString();
+                // reset bet
+                bet = 0; currentBetLabel.Text = "";
+                // cycle buttons
+                // phase 1
+                oneButton.Visible = true; fiveButton.Visible = true; tenButton.Visible = true; twfivButton.Visible = true; hundButton.Visible = true;
+                clearBetButton.Visible = true; betButton.Visible = true;
+                winloseLabel.Visible = false; reasonLabel.Visible = false;
+                // phase 2
+                hitButton.Visible = false; standButton.Visible = false; // b
+                playerExpandedHand.Visible = false; dealerExpandedHand.Visible = false;
+                // reset hands and textboxes
+                playerHand = 0; dealerHand = 0;
+                pc1 = ""; pc2 = ""; dc1 = ""; dc2 = "";
+                playerExpandedHand.Text = ""; dealerExpandedHand.Text = "";
+                // aces
+                playerAces = 0; dealerAces = 0;
+
+                // for testing
+                playerHandLabel.Visible = false; dealerHandLabel.Visible = false;
+                playerHandLabel.Text = ""; dealerHandLabel.Text = "";
+
+                winloseLabel.Text = "";
+            }
+        }
+
+        private void betButton_Click(object sender, EventArgs e)
+        {
+            if (bet > GlobalData.riskMoney)
+            {
+                MessageBox.Show("You cannot bet more than you have");
+                bet = 0;
+                currentBetLabel.Text = bet.ToString("C");
+                return;
+            }
+            if (bet == 0)
+            {
+                MessageBox.Show("You must place a bet before starting");
+                return;
+            }
+            GlobalData.riskMoney -= bet;
+            playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
+            // cycle buttons
+            gameStart = true;
+
+            screen();
+
+            // testing
+            playerHandLabel.Visible = true; dealerHandLabel.Visible = true;
+
+            // start
+            startGame();
+        }
         private void hitButton_Click(object sender, EventArgs e)
         {
             // new card
@@ -105,11 +174,11 @@ namespace Casino_Forms_Project
                 playerAces--;
             }
             // output
-            playerHandLabel.Text = playerHand.ToString();
+            playerExpandedHand.Text += " " + ascii[newCard];
             
             // for testing
-            playerExpandedHand.Text += " + " + newCard.ToString();
-            
+            playerHandLabel.Text = playerHand.ToString();
+
             // check if bust, removes hit so player doesnt bust at 21
             if (playerHand > 21) { playerLose(1); }
             if (playerHand == 21) { hitButton.Visible = false; }
@@ -117,71 +186,9 @@ namespace Casino_Forms_Project
             cardsRemainingLabel.Text = values.Count.ToString();
         }
 
-        private void screen()
-        {
-            if (gameStart) {
-                // phase 1
-                oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;
-                clearBetButton.Visible = false; betButton.Visible = false;
-                // phase 2
-                hitButton.Visible = true; standButton.Visible = true;
-                playerHandLabel.Visible = true; dealerHandLabel.Visible = true; }
-            else {
-                playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
-                playerBalanceLabel.Text = GlobalData.playerMoney.ToString("C");
-                cardsRemainingLabel.Text = values.Count.ToString();
-                // reset bet
-                bet = 0; currentBetLabel.Text = "";
-                // cycle buttons
-                // phase 1
-                oneButton.Visible = true; fiveButton.Visible = true; tenButton.Visible = true; twfivButton.Visible = true; hundButton.Visible = true;
-                clearBetButton.Visible = true; betButton.Visible = true;
-                winloseLabel.Visible = false; reasonLabel.Visible = false;
-                // phase 2
-                hitButton.Visible = false; standButton.Visible = false; // b
-                playerHandLabel.Visible = false; dealerHandLabel.Visible = false;
-                // reset hands and textboxes
-                playerHand = 0; dealerHand = 0;
-                pc1 = ""; pc2 = ""; dc1 = ""; dc2 = "";
-                playerHandLabel.Text = ""; dealerHandLabel.Text = "";
-                // aces
-                playerAces = 0; dealerAces = 0;
-
-                // for testing
-                playerExpandedHand.Visible = false; dealerExpandedHand.Visible = false;
-                playerExpandedHand.Text = ""; dealerExpandedHand.Text = "";
-
-                winloseLabel.Text = ""; }
-        }
-
-        private void betButton_Click(object sender, EventArgs e)
-        {
-            if (bet > GlobalData.riskMoney) {
-                MessageBox.Show("You cannot bet more than you have");
-                bet = 0;
-                currentBetLabel.Text = bet.ToString("C");
-                return;
-            }
-            if (bet == 0) {
-                MessageBox.Show("You must place a bet before starting");
-                return;
-            }
-            GlobalData.riskMoney -= bet;
-            playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
-            // cycle buttons
-            gameStart = true;
-
-            screen();
-
-            // testing
-            playerExpandedHand.Visible = true; dealerExpandedHand.Visible = true;
-
-            // start
-            startGame();
-        }
-
         private void standButton_Click(object sender, EventArgs e)
         {
+            string ncards = " ";
             // dealer until 17
             while (dealerHand < 17) {
                 string newCard = cardFromDeck();
@@ -192,10 +199,10 @@ namespace Casino_Forms_Project
                     dealerHand -= 10;
                     dealerAces--;
                 }
-
-                // for testing
-                dealerExpandedHand.Text += " + " + newCard.ToString();
+                ncards += ascii[newCard] + " ";
             }
+            dealerExpandedHand.Text = ascii[dc1] + " " + ascii[dc2] + ncards;
+            // for testing
             dealerHandLabel.Text = dealerHand.ToString();
             // reasons
             if (dealerHand == playerHand) { push(); }
@@ -209,7 +216,7 @@ namespace Casino_Forms_Project
         private string cardFromDeck()
         {
             int index = rng.Next(0, values.Count);
-            string temp = values[index];
+            string temp = values[index] + suits[index];
             suits.RemoveAt(index);
             values.RemoveAt(index);
             return temp;
@@ -217,14 +224,17 @@ namespace Casino_Forms_Project
 
         private int cardValue(string card)
         {
-            if (card == "A") { return 11; }
-            else if (card == "J" || card == "Q" || card == "K") { return 10; }
-            else { return int.Parse(card); }
+            string rank;
+            // if 10
+            if (card.Length == 3) { rank = card.Substring(0, 2); }
+            else { rank = card.Substring(0,1); }
+            if (rank == "A") { return 11; }
+            else if (rank == "J" || rank == "Q" || rank == "K") { return 10; }
+            else { return int.Parse(rank); }
         }
 
         private void startGame()
         {
-            string fakeDealer = "";
             // getting random cards from deck
             //pc1 = cardFromDeck();
             pc1 = cardFromDeck();
@@ -234,7 +244,7 @@ namespace Casino_Forms_Project
             // card value
             playerHand = cardValue(pc1) + cardValue(pc2);
             dealerHand = cardValue(dc1) + cardValue(dc2);
-            fakeDealer = dc1;
+            //string fakeDealer = dc1;
             // counting aces
             if (pc1 == "A") { playerAces++; } if (pc2 == "A") { playerAces++; }
             if (dc1 == "A") { dealerAces++; } if (dc2 == "A") { dealerAces++; }
@@ -247,16 +257,14 @@ namespace Casino_Forms_Project
                 dealerAces--;   
             }
             // if player is lucky
-            if (playerHand == 21) {
-                hitButton.Visible = false;
-            }
+            if (playerHand == 21) { hitButton.Visible = false; }
             // output
-            playerHandLabel.Text = pc1 + " " + pc2;
-            dealerHandLabel.Text = fakeDealer + " + ?";
+            playerExpandedHand.Text = ascii[pc1] + " " + ascii[pc2];
+            dealerExpandedHand.Text = ascii[dc1] + " + ?";
 
             // for testing
-            playerExpandedHand.Text = pc1.ToString() + " + " + pc2.ToString();
-            dealerExpandedHand.Text = dc1.ToString() + " + " + dc2.ToString();
+            playerHandLabel.Text = playerHand.ToString();
+            dealerHandLabel.Text = dealerHand.ToString();
 
             // cards remaining
             cardsRemainingLabel.Text = values.Count.ToString();
@@ -271,8 +279,8 @@ namespace Casino_Forms_Project
             }
             screen();
             // for testing
-            playerExpandedHand.Visible = false; dealerExpandedHand.Visible = false;
-            playerExpandedHand.Text = ""; dealerExpandedHand.Text = "";
+            playerHandLabel.Visible = false; dealerHandLabel.Visible = false;
+            playerHandLabel.Text = ""; dealerHandLabel.Text = "";
 
             winloseLabel.Text = "";
             // if half cards are remaining of deck ammounts, shuffle
