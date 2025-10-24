@@ -30,6 +30,10 @@ namespace Casino_Forms_Project
         private void doneButton_Click(object sender, EventArgs e)
         {
             // value
+            if (cvComboBox.SelectedItem == null) {
+                MessageBox.Show("Please select a value");
+                return;
+            }
             value = cvComboBox.SelectedItem.ToString();
 
             // suit
@@ -38,7 +42,7 @@ namespace Casino_Forms_Project
             else if (cCheckBox.Checked) { suit = "c"; }
             else if (sCheckBox.Checked) { suit = "s"; }
             
-            if (suit != null && value != null) {
+            if (suit != null) {
                 newCard = value + suit;
                 this.Close();
             } else {

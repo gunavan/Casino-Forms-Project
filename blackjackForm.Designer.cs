@@ -62,8 +62,8 @@
             this.playerHandMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pCard1MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pCard2MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dealerHandMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pNewCardMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dealerHandMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dCard1MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dCard2MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dNewCardMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -439,6 +439,13 @@
             this.pCard2MenuItem.Text = "Starting Card 2";
             this.pCard2MenuItem.Click += new System.EventHandler(this.pCard2MenuItem_Click);
             // 
+            // pNewCardMenuItem
+            // 
+            this.pNewCardMenuItem.Name = "pNewCardMenuItem";
+            this.pNewCardMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pNewCardMenuItem.Text = "new Card";
+            this.pNewCardMenuItem.Click += new System.EventHandler(this.pNewCardMenuItem_Click);
+            // 
             // dealerHandMenuItem
             // 
             this.dealerHandMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -450,28 +457,22 @@
             this.dealerHandMenuItem.Text = "Dealer Hand";
             this.dealerHandMenuItem.Visible = false;
             // 
-            // pNewCardMenuItem
-            // 
-            this.pNewCardMenuItem.Name = "pNewCardMenuItem";
-            this.pNewCardMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.pNewCardMenuItem.Text = "new Card";
-            // 
             // dCard1MenuItem
             // 
             this.dCard1MenuItem.Name = "dCard1MenuItem";
-            this.dCard1MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dCard1MenuItem.Size = new System.Drawing.Size(191, 26);
             this.dCard1MenuItem.Text = "Starting Card 1";
             // 
             // dCard2MenuItem
             // 
             this.dCard2MenuItem.Name = "dCard2MenuItem";
-            this.dCard2MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dCard2MenuItem.Size = new System.Drawing.Size(191, 26);
             this.dCard2MenuItem.Text = "Starting Card 2";
             // 
             // dNewCardMenuItem
             // 
             this.dNewCardMenuItem.Name = "dNewCardMenuItem";
-            this.dNewCardMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dNewCardMenuItem.Size = new System.Drawing.Size(191, 26);
             this.dNewCardMenuItem.Text = "new Card";
             // 
             // BlackjackForm
