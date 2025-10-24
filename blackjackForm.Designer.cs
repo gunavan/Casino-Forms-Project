@@ -59,6 +59,14 @@
             this.addDeckMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeDeckMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshScreenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playerHandMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pCard1MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pCard2MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dealerHandMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pNewCardMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dCard1MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dCard2MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dNewCardMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -250,6 +258,7 @@
             this.playerExpandedHand.Name = "playerExpandedHand";
             this.playerExpandedHand.Size = new System.Drawing.Size(937, 245);
             this.playerExpandedHand.TabIndex = 8;
+            this.playerExpandedHand.Text = "p hand";
             this.playerExpandedHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.playerExpandedHand.Visible = false;
             // 
@@ -261,6 +270,7 @@
             this.dealerExpandedHand.Name = "dealerExpandedHand";
             this.dealerExpandedHand.Size = new System.Drawing.Size(936, 245);
             this.dealerExpandedHand.TabIndex = 8;
+            this.dealerExpandedHand.Text = "d hand";
             this.dealerExpandedHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.dealerExpandedHand.Visible = false;
             // 
@@ -351,7 +361,7 @@
             this.debugToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(981, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(981, 28);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -362,45 +372,107 @@
             this.addMenuItem,
             this.addDeckMenuItem,
             this.removeDeckMenuItem,
-            this.refreshScreenMenuItem});
+            this.refreshScreenMenuItem,
+            this.playerHandMenuItem,
+            this.dealerHandMenuItem});
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            this.debugToolStripMenuItem.Size = new System.Drawing.Size(68, 26);
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.debugToolStripMenuItem.Text = "Debug";
             // 
             // shuffleMenuItem
             // 
             this.shuffleMenuItem.Name = "shuffleMenuItem";
-            this.shuffleMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.shuffleMenuItem.Size = new System.Drawing.Size(224, 26);
             this.shuffleMenuItem.Text = "Shuffle";
             this.shuffleMenuItem.Click += new System.EventHandler(this.shuffleMenuItem_Click);
             // 
             // addMenuItem
             // 
             this.addMenuItem.Name = "addMenuItem";
-            this.addMenuItem.Size = new System.Drawing.Size(189, 26);
-            this.addMenuItem.Text = "Add Balance";
+            this.addMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addMenuItem.Text = "Add 500 Balance";
             this.addMenuItem.Click += new System.EventHandler(this.addMenuItem_Click);
             // 
             // addDeckMenuItem
             // 
             this.addDeckMenuItem.Name = "addDeckMenuItem";
-            this.addDeckMenuItem.Size = new System.Drawing.Size(189, 26);
-            this.addDeckMenuItem.Text = "Add Deck";
+            this.addDeckMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addDeckMenuItem.Text = "Add Deck (+1)";
             this.addDeckMenuItem.Click += new System.EventHandler(this.deckQuantityMenuItem_Click);
             // 
             // removeDeckMenuItem
             // 
             this.removeDeckMenuItem.Name = "removeDeckMenuItem";
-            this.removeDeckMenuItem.Size = new System.Drawing.Size(189, 26);
-            this.removeDeckMenuItem.Text = "Remove Deck";
+            this.removeDeckMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.removeDeckMenuItem.Text = "Remove Deck (-1)";
             this.removeDeckMenuItem.Click += new System.EventHandler(this.removeDeckMenuItem_Click);
             // 
             // refreshScreenMenuItem
             // 
             this.refreshScreenMenuItem.Name = "refreshScreenMenuItem";
-            this.refreshScreenMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.refreshScreenMenuItem.Size = new System.Drawing.Size(224, 26);
             this.refreshScreenMenuItem.Text = "Refresh Screen";
             this.refreshScreenMenuItem.Click += new System.EventHandler(this.refreshScreenMenuItem_Click);
+            // 
+            // playerHandMenuItem
+            // 
+            this.playerHandMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pCard1MenuItem,
+            this.pCard2MenuItem,
+            this.pNewCardMenuItem});
+            this.playerHandMenuItem.Name = "playerHandMenuItem";
+            this.playerHandMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.playerHandMenuItem.Text = "Player Hand";
+            this.playerHandMenuItem.Visible = false;
+            // 
+            // pCard1MenuItem
+            // 
+            this.pCard1MenuItem.Name = "pCard1MenuItem";
+            this.pCard1MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pCard1MenuItem.Text = "Starting Card 1";
+            this.pCard1MenuItem.Click += new System.EventHandler(this.pCard1MenuItem_Click);
+            // 
+            // pCard2MenuItem
+            // 
+            this.pCard2MenuItem.Name = "pCard2MenuItem";
+            this.pCard2MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pCard2MenuItem.Text = "Starting Card 2";
+            this.pCard2MenuItem.Click += new System.EventHandler(this.pCard2MenuItem_Click);
+            // 
+            // dealerHandMenuItem
+            // 
+            this.dealerHandMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dCard1MenuItem,
+            this.dCard2MenuItem,
+            this.dNewCardMenuItem});
+            this.dealerHandMenuItem.Name = "dealerHandMenuItem";
+            this.dealerHandMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dealerHandMenuItem.Text = "Dealer Hand";
+            this.dealerHandMenuItem.Visible = false;
+            // 
+            // pNewCardMenuItem
+            // 
+            this.pNewCardMenuItem.Name = "pNewCardMenuItem";
+            this.pNewCardMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pNewCardMenuItem.Text = "new Card";
+            // 
+            // dCard1MenuItem
+            // 
+            this.dCard1MenuItem.Name = "dCard1MenuItem";
+            this.dCard1MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dCard1MenuItem.Text = "Starting Card 1";
+            // 
+            // dCard2MenuItem
+            // 
+            this.dCard2MenuItem.Name = "dCard2MenuItem";
+            this.dCard2MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dCard2MenuItem.Text = "Starting Card 2";
+            // 
+            // dNewCardMenuItem
+            // 
+            this.dNewCardMenuItem.Name = "dNewCardMenuItem";
+            this.dNewCardMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dNewCardMenuItem.Text = "new Card";
             // 
             // BlackjackForm
             // 
@@ -477,5 +549,13 @@
         private System.Windows.Forms.ToolStripMenuItem addDeckMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshScreenMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeDeckMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playerHandMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pCard1MenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pCard2MenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pNewCardMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dealerHandMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dCard1MenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dCard2MenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dNewCardMenuItem;
     }
 }

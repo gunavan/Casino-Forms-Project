@@ -46,6 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlackJackForm.Betting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlackJackCardSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlackJackCardSelection.Designer.cs">
+      <DependentUpon>BlackJackCardSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="BlackjackForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BlackJackCardSelection.resx">
+      <DependentUpon>BlackJackCardSelection.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BlackjackForm.resx">
       <DependentUpon>BlackjackForm.cs</DependentUpon>
     </EmbeddedResource>
