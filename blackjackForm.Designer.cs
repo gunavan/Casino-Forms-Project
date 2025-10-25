@@ -74,7 +74,7 @@
             // 
             this.playerMoneyLabel.BackColor = System.Drawing.Color.Transparent;
             this.playerMoneyLabel.Font = new System.Drawing.Font("Javanese Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerMoneyLabel.Location = new System.Drawing.Point(187, 46);
+            this.playerMoneyLabel.Location = new System.Drawing.Point(169, 28);
             this.playerMoneyLabel.Name = "playerMoneyLabel";
             this.playerMoneyLabel.Size = new System.Drawing.Size(171, 37);
             this.playerMoneyLabel.TabIndex = 4;
@@ -84,9 +84,9 @@
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Javanese Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 46);
+            this.label2.Location = new System.Drawing.Point(14, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 37);
+            this.label2.Size = new System.Drawing.Size(149, 37);
             this.label2.TabIndex = 5;
             this.label2.Text = "Current Money:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -95,7 +95,7 @@
             // 
             this.betButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.betButton.Font = new System.Drawing.Font("Javanese Text", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.betButton.Location = new System.Drawing.Point(797, 544);
+            this.betButton.Location = new System.Drawing.Point(990, 656);
             this.betButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.betButton.Name = "betButton";
             this.betButton.Size = new System.Drawing.Size(124, 124);
@@ -108,7 +108,7 @@
             // 
             this.oneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.oneButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oneButton.Location = new System.Drawing.Point(71, 544);
+            this.oneButton.Location = new System.Drawing.Point(264, 656);
             this.oneButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.oneButton.Name = "oneButton";
             this.oneButton.Size = new System.Drawing.Size(124, 124);
@@ -121,7 +121,7 @@
             // 
             this.fiveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.fiveButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fiveButton.Location = new System.Drawing.Point(216, 544);
+            this.fiveButton.Location = new System.Drawing.Point(409, 656);
             this.fiveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fiveButton.Name = "fiveButton";
             this.fiveButton.Size = new System.Drawing.Size(124, 124);
@@ -134,7 +134,7 @@
             // 
             this.tenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tenButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tenButton.Location = new System.Drawing.Point(363, 544);
+            this.tenButton.Location = new System.Drawing.Point(556, 656);
             this.tenButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tenButton.Name = "tenButton";
             this.tenButton.Size = new System.Drawing.Size(124, 124);
@@ -147,7 +147,7 @@
             // 
             this.twfivButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.twfivButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.twfivButton.Location = new System.Drawing.Point(507, 544);
+            this.twfivButton.Location = new System.Drawing.Point(700, 656);
             this.twfivButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.twfivButton.Name = "twfivButton";
             this.twfivButton.Size = new System.Drawing.Size(124, 124);
@@ -160,7 +160,7 @@
             // 
             this.hundButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.hundButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hundButton.Location = new System.Drawing.Point(653, 544);
+            this.hundButton.Location = new System.Drawing.Point(846, 656);
             this.hundButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hundButton.Name = "hundButton";
             this.hundButton.Size = new System.Drawing.Size(124, 124);
@@ -173,7 +173,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Javanese Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(703, 9);
+            this.label1.Location = new System.Drawing.Point(998, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 37);
             this.label1.TabIndex = 5;
@@ -184,7 +184,7 @@
             // 
             this.playerBalanceLabel.BackColor = System.Drawing.Color.Transparent;
             this.playerBalanceLabel.Font = new System.Drawing.Font("Javanese Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerBalanceLabel.Location = new System.Drawing.Point(809, 9);
+            this.playerBalanceLabel.Location = new System.Drawing.Point(1104, 9);
             this.playerBalanceLabel.Name = "playerBalanceLabel";
             this.playerBalanceLabel.Size = new System.Drawing.Size(161, 37);
             this.playerBalanceLabel.TabIndex = 4;
@@ -194,7 +194,7 @@
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 486);
+            this.label4.Location = new System.Drawing.Point(17, 615);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 37);
             this.label4.TabIndex = 5;
@@ -205,7 +205,7 @@
             // 
             this.currentBetLabel.BackColor = System.Drawing.Color.Transparent;
             this.currentBetLabel.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentBetLabel.Location = new System.Drawing.Point(187, 486);
+            this.currentBetLabel.Location = new System.Drawing.Point(192, 615);
             this.currentBetLabel.Name = "currentBetLabel";
             this.currentBetLabel.Size = new System.Drawing.Size(171, 37);
             this.currentBetLabel.TabIndex = 4;
@@ -215,10 +215,10 @@
             // 
             this.clearBetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.clearBetButton.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBetButton.Location = new System.Drawing.Point(653, 684);
+            this.clearBetButton.Location = new System.Drawing.Point(118, 656);
             this.clearBetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clearBetButton.Name = "clearBetButton";
-            this.clearBetButton.Size = new System.Drawing.Size(269, 48);
+            this.clearBetButton.Size = new System.Drawing.Size(124, 124);
             this.clearBetButton.TabIndex = 6;
             this.clearBetButton.Text = "Clear Bet";
             this.clearBetButton.UseVisualStyleBackColor = false;
@@ -227,7 +227,7 @@
             // hitButton
             // 
             this.hitButton.Font = new System.Drawing.Font("Javanese Text", 12F);
-            this.hitButton.Location = new System.Drawing.Point(682, 587);
+            this.hitButton.Location = new System.Drawing.Point(990, 632);
             this.hitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hitButton.Name = "hitButton";
             this.hitButton.Size = new System.Drawing.Size(269, 71);
@@ -240,7 +240,7 @@
             // standButton
             // 
             this.standButton.Font = new System.Drawing.Font("Javanese Text", 12F);
-            this.standButton.Location = new System.Drawing.Point(682, 664);
+            this.standButton.Location = new System.Drawing.Point(990, 709);
             this.standButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.standButton.Name = "standButton";
             this.standButton.Size = new System.Drawing.Size(269, 71);
@@ -254,9 +254,9 @@
             // 
             this.playerExpandedHand.BackColor = System.Drawing.SystemColors.Control;
             this.playerExpandedHand.Font = new System.Drawing.Font("Javanese Text", 85.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerExpandedHand.Location = new System.Drawing.Point(19, 327);
+            this.playerExpandedHand.Location = new System.Drawing.Point(12, 370);
             this.playerExpandedHand.Name = "playerExpandedHand";
-            this.playerExpandedHand.Size = new System.Drawing.Size(937, 245);
+            this.playerExpandedHand.Size = new System.Drawing.Size(1252, 245);
             this.playerExpandedHand.TabIndex = 8;
             this.playerExpandedHand.Text = "p hand";
             this.playerExpandedHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,9 +266,9 @@
             // 
             this.dealerExpandedHand.BackColor = System.Drawing.SystemColors.Control;
             this.dealerExpandedHand.Font = new System.Drawing.Font("Javanese Text", 85.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dealerExpandedHand.Location = new System.Drawing.Point(20, 74);
+            this.dealerExpandedHand.Location = new System.Drawing.Point(12, 125);
             this.dealerExpandedHand.Name = "dealerExpandedHand";
-            this.dealerExpandedHand.Size = new System.Drawing.Size(936, 245);
+            this.dealerExpandedHand.Size = new System.Drawing.Size(1252, 245);
             this.dealerExpandedHand.TabIndex = 8;
             this.dealerExpandedHand.Text = "d hand";
             this.dealerExpandedHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,9 +278,9 @@
             // 
             this.crLabel.BackColor = System.Drawing.Color.Transparent;
             this.crLabel.Font = new System.Drawing.Font("Javanese Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crLabel.Location = new System.Drawing.Point(643, 46);
+            this.crLabel.Location = new System.Drawing.Point(963, 46);
             this.crLabel.Name = "crLabel";
-            this.crLabel.Size = new System.Drawing.Size(208, 37);
+            this.crLabel.Size = new System.Drawing.Size(202, 37);
             this.crLabel.TabIndex = 5;
             this.crLabel.Text = "Cards Remaining:";
             this.crLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -289,7 +289,7 @@
             // 
             this.cardsRemainingLabel.BackColor = System.Drawing.Color.Transparent;
             this.cardsRemainingLabel.Font = new System.Drawing.Font("Javanese Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cardsRemainingLabel.Location = new System.Drawing.Point(856, 46);
+            this.cardsRemainingLabel.Location = new System.Drawing.Point(1170, 46);
             this.cardsRemainingLabel.Name = "cardsRemainingLabel";
             this.cardsRemainingLabel.Size = new System.Drawing.Size(95, 37);
             this.cardsRemainingLabel.TabIndex = 4;
@@ -299,9 +299,9 @@
             // 
             this.playerHandLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.playerHandLabel.Font = new System.Drawing.Font("Javanese Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerHandLabel.Location = new System.Drawing.Point(26, 644);
+            this.playerHandLabel.Location = new System.Drawing.Point(18, 666);
             this.playerHandLabel.Name = "playerHandLabel";
-            this.playerHandLabel.Size = new System.Drawing.Size(275, 37);
+            this.playerHandLabel.Size = new System.Drawing.Size(199, 37);
             this.playerHandLabel.TabIndex = 8;
             this.playerHandLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.playerHandLabel.Visible = false;
@@ -310,9 +310,9 @@
             // 
             this.dealerHandLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.dealerHandLabel.Font = new System.Drawing.Font("Javanese Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dealerHandLabel.Location = new System.Drawing.Point(26, 697);
+            this.dealerHandLabel.Location = new System.Drawing.Point(18, 719);
             this.dealerHandLabel.Name = "dealerHandLabel";
-            this.dealerHandLabel.Size = new System.Drawing.Size(275, 38);
+            this.dealerHandLabel.Size = new System.Drawing.Size(199, 38);
             this.dealerHandLabel.TabIndex = 8;
             this.dealerHandLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.dealerHandLabel.Visible = false;
@@ -320,10 +320,10 @@
             // winloseLabel
             // 
             this.winloseLabel.BackColor = System.Drawing.Color.Transparent;
-            this.winloseLabel.Font = new System.Drawing.Font("Javanese Text", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winloseLabel.Location = new System.Drawing.Point(27, 573);
+            this.winloseLabel.Font = new System.Drawing.Font("Javanese Text", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winloseLabel.Location = new System.Drawing.Point(231, 643);
             this.winloseLabel.Name = "winloseLabel";
-            this.winloseLabel.Size = new System.Drawing.Size(274, 71);
+            this.winloseLabel.Size = new System.Drawing.Size(323, 130);
             this.winloseLabel.TabIndex = 5;
             this.winloseLabel.Text = "YOU WIN";
             this.winloseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -333,9 +333,9 @@
             // 
             this.reasonLabel.BackColor = System.Drawing.Color.Transparent;
             this.reasonLabel.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reasonLabel.Location = new System.Drawing.Point(321, 587);
+            this.reasonLabel.Location = new System.Drawing.Point(560, 643);
             this.reasonLabel.Name = "reasonLabel";
-            this.reasonLabel.Size = new System.Drawing.Size(340, 146);
+            this.reasonLabel.Size = new System.Drawing.Size(407, 130);
             this.reasonLabel.TabIndex = 5;
             this.reasonLabel.Text = "reason";
             this.reasonLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -345,9 +345,9 @@
             // 
             this.shuffleLabel.BackColor = System.Drawing.Color.Transparent;
             this.shuffleLabel.Font = new System.Drawing.Font("Javanese Text", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shuffleLabel.Location = new System.Drawing.Point(26, 319);
+            this.shuffleLabel.Location = new System.Drawing.Point(11, 312);
             this.shuffleLabel.Name = "shuffleLabel";
-            this.shuffleLabel.Size = new System.Drawing.Size(925, 123);
+            this.shuffleLabel.Size = new System.Drawing.Size(1253, 123);
             this.shuffleLabel.TabIndex = 5;
             this.shuffleLabel.Text = "DECK WAS RESHUFFLED";
             this.shuffleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -361,7 +361,7 @@
             this.debugToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(981, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1277, 28);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -376,41 +376,41 @@
             this.playerHandMenuItem,
             this.dealerHandMenuItem});
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            this.debugToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(68, 26);
             this.debugToolStripMenuItem.Text = "Debug";
             // 
             // shuffleMenuItem
             // 
             this.shuffleMenuItem.Name = "shuffleMenuItem";
-            this.shuffleMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.shuffleMenuItem.Size = new System.Drawing.Size(211, 26);
             this.shuffleMenuItem.Text = "Shuffle";
             this.shuffleMenuItem.Click += new System.EventHandler(this.shuffleMenuItem_Click);
             // 
             // addMenuItem
             // 
             this.addMenuItem.Name = "addMenuItem";
-            this.addMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addMenuItem.Size = new System.Drawing.Size(211, 26);
             this.addMenuItem.Text = "Add 500 Balance";
             this.addMenuItem.Click += new System.EventHandler(this.addMenuItem_Click);
             // 
             // addDeckMenuItem
             // 
             this.addDeckMenuItem.Name = "addDeckMenuItem";
-            this.addDeckMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addDeckMenuItem.Size = new System.Drawing.Size(211, 26);
             this.addDeckMenuItem.Text = "Add Deck (+1)";
             this.addDeckMenuItem.Click += new System.EventHandler(this.deckQuantityMenuItem_Click);
             // 
             // removeDeckMenuItem
             // 
             this.removeDeckMenuItem.Name = "removeDeckMenuItem";
-            this.removeDeckMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.removeDeckMenuItem.Size = new System.Drawing.Size(211, 26);
             this.removeDeckMenuItem.Text = "Remove Deck (-1)";
             this.removeDeckMenuItem.Click += new System.EventHandler(this.removeDeckMenuItem_Click);
             // 
             // refreshScreenMenuItem
             // 
             this.refreshScreenMenuItem.Name = "refreshScreenMenuItem";
-            this.refreshScreenMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.refreshScreenMenuItem.Size = new System.Drawing.Size(211, 26);
             this.refreshScreenMenuItem.Text = "Refresh Screen";
             this.refreshScreenMenuItem.Click += new System.EventHandler(this.refreshScreenMenuItem_Click);
             // 
@@ -421,28 +421,28 @@
             this.pCard2MenuItem,
             this.pNewCardMenuItem});
             this.playerHandMenuItem.Name = "playerHandMenuItem";
-            this.playerHandMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.playerHandMenuItem.Size = new System.Drawing.Size(211, 26);
             this.playerHandMenuItem.Text = "Player Hand";
             this.playerHandMenuItem.Visible = false;
             // 
             // pCard1MenuItem
             // 
             this.pCard1MenuItem.Name = "pCard1MenuItem";
-            this.pCard1MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pCard1MenuItem.Size = new System.Drawing.Size(191, 26);
             this.pCard1MenuItem.Text = "Starting Card 1";
             this.pCard1MenuItem.Click += new System.EventHandler(this.pCard1MenuItem_Click);
             // 
             // pCard2MenuItem
             // 
             this.pCard2MenuItem.Name = "pCard2MenuItem";
-            this.pCard2MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pCard2MenuItem.Size = new System.Drawing.Size(191, 26);
             this.pCard2MenuItem.Text = "Starting Card 2";
             this.pCard2MenuItem.Click += new System.EventHandler(this.pCard2MenuItem_Click);
             // 
             // pNewCardMenuItem
             // 
             this.pNewCardMenuItem.Name = "pNewCardMenuItem";
-            this.pNewCardMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pNewCardMenuItem.Size = new System.Drawing.Size(191, 26);
             this.pNewCardMenuItem.Text = "new Card";
             this.pNewCardMenuItem.Click += new System.EventHandler(this.pNewCardMenuItem_Click);
             // 
@@ -453,7 +453,7 @@
             this.dCard2MenuItem,
             this.dNewCardMenuItem});
             this.dealerHandMenuItem.Name = "dealerHandMenuItem";
-            this.dealerHandMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dealerHandMenuItem.Size = new System.Drawing.Size(211, 26);
             this.dealerHandMenuItem.Text = "Dealer Hand";
             this.dealerHandMenuItem.Visible = false;
             // 
@@ -480,7 +480,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(981, 753);
+            this.ClientSize = new System.Drawing.Size(1277, 814);
             this.Controls.Add(this.reasonLabel);
             this.Controls.Add(this.winloseLabel);
             this.Controls.Add(this.playerExpandedHand);

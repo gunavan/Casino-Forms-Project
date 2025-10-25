@@ -58,13 +58,13 @@ namespace Casino_Forms_Project
             // cycle buttons
             gameStart = true;
 
-            screen();
+            Screen();
 
             // testing
             playerHandLabel.Visible = true; dealerHandLabel.Visible = true;
 
             // start
-            startGame();
+            StartGame();
         }
     }
 

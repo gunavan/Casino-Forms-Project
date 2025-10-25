@@ -14,7 +14,7 @@ namespace Casino_Forms_Project
             // then add new card and add ace if needed
             pc1 = bjcs.Card;
             updatePlayerHand();
-            screen();
+            Screen();
         }
 
         private void pCard2MenuItem_Click(object sender, EventArgs e)
@@ -22,11 +22,11 @@ namespace Casino_Forms_Project
             bjcs.ShowDialog();
             pc2 = bjcs.Card;
             updatePlayerHand();
-            screen();
+            Screen();
         }
         private void updatePlayerHand()
         {
-            playerHand = cardValue(pc1) + cardValue(pc2);
+            playerHand = CardValueInt(pc1) + CardValueInt(pc2);
             if (pc1.Substring(0, 1) == "A" || pc2.Substring(0, 1) == "A") { playerAces--; }
             //over21Checker("player");
             playerExpandedHand.Text = ascii[pc1] + " " + ascii[pc2];
@@ -40,7 +40,7 @@ namespace Casino_Forms_Project
             bjcs.ShowDialog();
             // new card
             string newCard = bjcs.Card;
-            playerHand += cardValue(newCard);
+            playerHand += CardValueInt(newCard);
             //over21Checker("player");
             // output
             playerExpandedHand.Text += " " + ascii[newCard];
@@ -49,30 +49,30 @@ namespace Casino_Forms_Project
             playerHandLabel.Text = playerHand.ToString();
 
             // check if bust, removes hit so player doesnt bust at 21
-            if (playerHand > 21) { playerLose(1); }
+            if (playerHand > 21) { PlayerLose(1); }
             if (playerHand == 21) { hitButton.Visible = false; }
             // cards remaining
             cardsRemainingLabel.Text = decks.Count.ToString();
-            screen();
+            Screen();
         }
 
         private void shuffleMenuItem_Click(object sender, EventArgs e)
         {
-            shuffle();
-            screen();
+            Shuffle();
+            Screen();
         }
 
         private void addMenuItem_Click(object sender, EventArgs e)
         {
             GlobalData.riskMoney += 500;
-            screen();
+            Screen();
         }
 
         private void deckQuantityMenuItem_Click(object sender, EventArgs e)
         {
             DECKAMMOUNTS++;
-            shuffle();
-            screen();
+            Shuffle();
+            Screen();
         }
 
         private void removeDeckMenuItem_Click(object sender, EventArgs e)
@@ -83,13 +83,13 @@ namespace Casino_Forms_Project
                 return;
             }
             DECKAMMOUNTS--;
-            shuffle();
-            screen();
+            Shuffle();
+            Screen();
         }
 
         private void refreshScreenMenuItem_Click(object sender, EventArgs e)
         {
-            screen();
+            Screen();
         }
     }
 }

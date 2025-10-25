@@ -1,14 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Reflection.Emit;
-using System.Security.Policy;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,17 +8,15 @@ namespace Casino_Forms_Project
     public partial class BlackjackForm : Form
     {
         // variables
-        int bet = 0;
-        int playerHand = 0, dealerHand = 0;
+        int bet = 0, playerHand = 0, dealerHand = 0, DECKAMMOUNTS = 4, playerAces = 0, dealerAces = 0;
         string pc1, pc2, dc1, dc2;
-        int DECKAMMOUNTS = 4;
         bool gameStart = false;
         // deck from main
+        List<string> playerCards = new List<string>();
+        List<string> dealerCards = new List<string>();
         List<string> decks = new List<string>();
         Dictionary<string, string> ascii = new Dictionary<string, string>(GlobalData.asciiCards);
         private Random rng = new Random();
-        // ace counters
-        int playerAces = 0, dealerAces = 0;
         // forms
         BlackJackCardSelection bjcs = new BlackJackCardSelection();
         public BlackjackForm()
@@ -35,7 +24,7 @@ namespace Casino_Forms_Project
             InitializeComponent();
             BlackjackMoneyForm bjmf = new BlackjackMoneyForm();
             // adding decks
-            decks = new List<string>(addDecks(DECKAMMOUNTS));
+            decks = new List<string>(AddDecks(DECKAMMOUNTS));
             // getting money to enter
             bjmf.ShowDialog();
             playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
@@ -43,7 +32,7 @@ namespace Casino_Forms_Project
             // remaining cards
             cardsRemainingLabel.Text = decks.Count.ToString();
         }
-        private static List<string> addDecks(int count)
+        private static List<string> AddDecks(int count)
         {
             List<string> r = new List<string>();
             while (count-- > 0) { r.AddRange(GlobalData.deck); }
@@ -51,26 +40,198 @@ namespace Casino_Forms_Project
             return r;
         }
 
-        private void screen()
+        private void hitButton_Click(object sender, EventArgs e)
         {
-            if (gameStart)
+            // new card
+            string newCard = CardFromDeck();
+            playerCards.Add(newCard);
+            playerHand += CardValueInt(newCard);                           // counting
+            if (CardValueString(newCard) == "A") { playerAces++; }      // aces
+            playerHand = IfOver21("player", playerHand);                // if over and ace
+            // string
+            playerExpandedHand.Text = HandPrint(playerCards);
+
+            // for testing
+            playerHandLabel.Text = playerHand.ToString();
+
+            // check if bust, removes hit so player doesnt bust at 21
+            if (playerHand > 21) { PlayerLose(1); }
+            if (playerHand == 21) { hitButton.Visible = false; }
+            // cards remaining
+            cardsRemainingLabel.Text = decks.Count.ToString();
+        }
+
+        private void standButton_Click(object sender, EventArgs e)
+        {
+            // dealer until 17
+            while (dealerHand < 17) {
+                string newCard = CardFromDeck(); dealerCards.Add(newCard);
+                dealerCards.Add(newCard);
+                dealerHand += CardValueInt(newCard);                       // counting
+                if (CardValueString(newCard) == "A") { dealerAces++; }  // dealer ace counter
+                dealerHand = IfOver21("dealer", dealerHand);            // if over and ace
+            }
+            dealerExpandedHand.Text = HandPrint(dealerCards);
+            // for testing
+            dealerHandLabel.Text = dealerHand.ToString();
+            // reasons
+            if (dealerHand == playerHand) { Push(); }
+            else if (dealerHand > 21) { PlayerWin(1); }
+            else if (dealerHand > playerHand) { PlayerLose(2); }
+            else { PlayerWin(2); }
+            // card remaining
+            cardsRemainingLabel.Text = decks.Count.ToString();
+        }
+
+        private string CardFromDeck()
+        {
+            int index = rng.Next(0, decks.Count);
+            string temp = decks[index];
+            decks.RemoveAt(index);
+            return temp;
+        }
+
+        private void StartGame()
+        {
+            // getting random cards from deck
+            pc1 = CardFromDeck(); pc2 = CardFromDeck();
+            dc1 = CardFromDeck(); dc2 = CardFromDeck();
+            // adding to list
+            playerCards.Add(pc1); playerCards.Add(pc2);
+            dealerCards.Add(dc1); dealerCards.Add(dc2);
+            // hand value
+            playerHand = HandValue(playerCards);
+            dealerHand = HandValue(dealerCards);
+            // counting aces
+            playerAces = AceCounter(playerCards);
+            dealerAces = AceCounter(dealerCards);
+            // checking if over 21 on first hand. player and dealer
+            playerHand = IfOver21("player", playerHand);
+            dealerHand = IfOver21("dealer", dealerHand);
+            // if player is lucky
+            if (playerHand == 21) { hitButton.Visible = false; }
+            // output
+            playerExpandedHand.Text = HandPrint(playerCards);
+            dealerExpandedHand.Text = ascii[dc1] + " + ?";
+
+            // for testing
+            playerHandLabel.Text = playerHand.ToString();
+            dealerHandLabel.Text = dealerHand.ToString();
+
+            // cards remaining
+            cardsRemainingLabel.Text = decks.Count.ToString();
+
+            // menu items
+            playerHandMenuItem.Visible = true;
+            dealerHandMenuItem.Visible = true;
+        }
+
+        private string HandPrint(List<string> cards)
+        {
+            string r = "";
+            foreach (string i in cards) {
+                r += " " + ascii[i];
+            }
+            return r;
+        }
+
+        private int CardValueInt(string card)
+        {
+            string rank = CardValueString(card);
+            
+            if (rank == "A") { return 11;  }
+            else if (rank == "J" || rank == "Q" || rank == "K") { return 10; }
+            else { return int.Parse(rank); }
+        }
+
+        private string CardValueString(string card)
+        {
+            if (card.Length == 3) { return card.Substring(0, 2); }
+            else { return card.Substring(0, 1); }
+        }
+
+        private int HandValue(List<string> hand)
+        {
+            int total = 0;
+            foreach (string card in hand) {
+                total += CardValueInt(card);
+            }
+            return total;
+        }
+
+        private int AceCounter(List<string> hand)
+        {
+            int aces = 0;
+            foreach (string card in hand) {
+                if (CardValueString(card) == "A") { aces++; }
+            }
+            return aces;
+        }
+
+        private int IfOver21(string who, int hand)
+        {
+            int r = hand;
+            if (who == "player" && (hand > 21 && playerAces > 0)) {
+                r -= 10;
+                playerAces--;
+                return r; }
+            else if (who == "dealer" && (hand > 21 && dealerAces > 0)) {
+                r -= 10;
+                dealerAces--;
+                return r; }
+            else { return r; }
+        }
+
+        private void RestartGame()
+        {
+            // if no money left
+            if (GlobalData.riskMoney <= 0)
             {
+                MessageBox.Show("You are out of money! \nBetter luck Next Time :(");
+                this.Close();
+            }
+            gameStart = false;
+            Screen();
+            
+            
+            // for testing
+            playerHandLabel.Visible = false; dealerHandLabel.Visible = false;
+            playerHandLabel.Text = ""; dealerHandLabel.Text = "";
+
+            winloseLabel.Text = "";
+            // if half cards are remaining of deck ammounts, shuffle
+            if (decks.Count < (52 * DECKAMMOUNTS) / 2) { Shuffle(); }
+            // cards remaining
+            cardsRemainingLabel.Text = decks.Count.ToString();
+        }
+
+        private async void Shuffle()
+        {
+            decks.Clear();
+            decks = new List<string>(AddDecks(DECKAMMOUNTS));
+            // textbox
+            shuffleLabel.Visible = true;
+            await waitTimer(3);
+            shuffleLabel.Visible = false;
+        }
+
+        private void Screen()
+        {
+            if (gameStart) {
                 // phase 1
                 oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;
                 clearBetButton.Visible = false; betButton.Visible = false;
                 // phase 2
                 hitButton.Visible = true; standButton.Visible = true;
                 playerExpandedHand.Visible = true; dealerExpandedHand.Visible = true;
-                // textboxes
+                // textboxes refresh
                 playerExpandedHand.Text = playerExpandedHand.Text; dealerExpandedHand.Text = dealerExpandedHand.Text;
                 playerHandLabel.Text = playerHand.ToString(); dealerHandLabel.Text = dealerHand.ToString();
                 winloseLabel.Text = winloseLabel.Text; reasonLabel.Text = reasonLabel.Text;
                 // menu items
                 playerHandMenuItem.Visible = true;
-                dealerHandMenuItem.Visible = true;
-            }
-            else
-            {
+                dealerHandMenuItem.Visible = true; }
+            else {
                 playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
                 playerBalanceLabel.Text = GlobalData.playerMoney.ToString("C");
                 cardsRemainingLabel.Text = decks.Count.ToString();
@@ -90,6 +251,8 @@ namespace Casino_Forms_Project
                 playerExpandedHand.Text = ""; dealerExpandedHand.Text = "";
                 // aces
                 playerAces = 0; dealerAces = 0;
+                // clearing hands
+                playerCards.Clear(); dealerCards.Clear();
 
                 // for testing
                 playerHandLabel.Visible = false; dealerHandLabel.Visible = false;
@@ -98,215 +261,7 @@ namespace Casino_Forms_Project
                 playerHandMenuItem.Visible = false;
                 dealerHandMenuItem.Visible = false;
 
-                winloseLabel.Text = "";
-            }
-        }
-
-        private void hitButton_Click(object sender, EventArgs e)
-        {
-            // new card
-            string newCard = cardFromDeck();
-            playerHand += cardValue(newCard);
-            // checking for ace
-            if (cardValueString(newCard) == "A") { playerAces++; }
-            // if over 21 with new card, and if ace in first hand
-            if (playerHand > 21 && playerAces != 0) {
-                playerHand -= 10;
-                playerAces--;
-            }
-            // output
-            playerExpandedHand.Text += " " + ascii[newCard];
-
-            // for testing
-            playerHandLabel.Text = playerHand.ToString();
-
-            // check if bust, removes hit so player doesnt bust at 21
-            if (playerHand > 21) { playerLose(1); }
-            if (playerHand == 21) { hitButton.Visible = false; }
-            // cards remaining
-            cardsRemainingLabel.Text = decks.Count.ToString();
-        }
-
-        private void standButton_Click(object sender, EventArgs e)
-        {
-            string ncards = " ";
-            // dealer until 17
-            while (dealerHand < 17)
-            {
-                string newCard = cardFromDeck();
-                dealerHand += cardValue(newCard);
-                // dealer ace counter
-                if (cardValueString(newCard) == "A") { dealerAces++; }
-                if (dealerHand > 21 && dealerAces != 0)
-                {
-                    dealerHand -= 10;
-                    dealerAces--;
-                }
-                ncards += ascii[newCard] + " ";
-            }
-            dealerExpandedHand.Text = ascii[dc1] + " " + ascii[dc2] + ncards;
-            // for testing
-            dealerHandLabel.Text = dealerHand.ToString();
-            // reasons
-            if (dealerHand == playerHand) { push(); }
-            else if (dealerHand > 21) { playerWin(1); }
-            else if (dealerHand > playerHand) { playerLose(2); }
-            else { playerWin(2); }
-            // card remaining
-            cardsRemainingLabel.Text = decks.Count.ToString();
-        }
-
-        private string cardFromDeck()
-        {
-            int index = rng.Next(0, decks.Count);
-            string temp = decks[index];
-            decks.RemoveAt(index);
-            return temp;
-        }
-
-        private int cardValue(string card)
-        {
-            string rank;
-            // if 10
-            if (card.Length == 3) { rank = card.Substring(0, 2); }
-            else { rank = card.Substring(0, 1); }
-
-            if (rank == "A") { return 11;  }
-            else if (rank == "J" || rank == "Q" || rank == "K") { return 10; }
-            else { return int.Parse(rank); }
-        }
-
-        private string cardValueString(string card)
-        {
-            if (card.Length == 3) { return card.Substring(0, 2); }
-            else { return card.Substring(0, 1); }
-        }
-
-        private void startGame()
-        {
-            // getting random cards from deck
-            //pc1 = cardFromDeck();
-            pc1 = cardFromDeck();
-            pc2 = cardFromDeck();
-            dc1 = cardFromDeck();
-            dc2 = cardFromDeck();
-            // card value
-            playerHand = cardValue(pc1) + cardValue(pc2);
-            dealerHand = cardValue(dc1) + cardValue(dc2);
-            //string fakeDealer = dc1;
-            // counting aces
-            if (cardValueString(pc1) == "A") { playerAces++; }
-            if (cardValueString(pc2) == "A") { playerAces++; }
-            if (cardValueString(dc1) == "A") { dealerAces++; }
-            if (cardValueString(dc2) == "A") { dealerAces++; }
-            // checking if over 21 on first hand. player and dealer
-            if (playerHand > 21 && playerAces != 0) {
-                playerHand -= 10;
-                playerAces--;
-            }
-            else if (dealerHand > 21 && dealerAces != 0) {
-                dealerHand -= 10;
-                dealerAces--;
-            }
-            // if player is lucky
-            if (playerHand == 21) { hitButton.Visible = false; }
-            // output
-            playerExpandedHand.Text = ascii[pc1] + " " + ascii[pc2];
-            dealerExpandedHand.Text = ascii[dc1] + " + ?";
-
-            // for testing
-            playerHandLabel.Text = playerHand.ToString();
-            dealerHandLabel.Text = dealerHand.ToString();
-
-            // cards remaining
-            cardsRemainingLabel.Text = decks.Count.ToString();
-
-            // menu items
-            playerHandMenuItem.Visible = true;
-            dealerHandMenuItem.Visible = true;
-        }
-
-        private void restartGame()
-        {
-            // if no money left
-            if (GlobalData.riskMoney <= 0)
-            {
-                MessageBox.Show("You are out of money! \nBetter luck Next Time :(");
-                this.Close();
-            }
-            screen();
-            // for testing
-            playerHandLabel.Visible = false; dealerHandLabel.Visible = false;
-            playerHandLabel.Text = ""; dealerHandLabel.Text = "";
-
-            winloseLabel.Text = "";
-            // if half cards are remaining of deck ammounts, shuffle
-            if (decks.Count < (52 * DECKAMMOUNTS) / 2) { shuffle(); }
-            // cards remaining
-            cardsRemainingLabel.Text = decks.Count.ToString();
-        }
-
-        private async void shuffle()
-        {
-            decks.Clear();
-            decks = new List<string>(addDecks(DECKAMMOUNTS));
-            // textbox
-            shuffleLabel.Visible = true;
-            await waitTimer(3);
-            shuffleLabel.Visible = false;
-        }
-
-        private async void playerWin(int i)
-        {
-            string temp = "";
-            winloseLabel.Visible = true; reasonLabel.Visible = true;
-            winloseLabel.Text = "YOU WIN!";
-            // reasons
-            if (i == 1) { temp = "Dealer bust!"; }
-            else if (i == 2) { temp = "Hand beats dealer's!"; }
-            reasonLabel.Text = temp + "\n x2 payout";
-            // hide buttons
-            hitButton.Visible = false;
-            standButton.Visible = false;
-            await waitTimer(3);
-            // updater
-            GlobalData.riskMoney += (bet * 2);
-            playerMoneyLabel.Text = (GlobalData.riskMoney).ToString("C");
-            gameStart = false;
-            restartGame();
-        }
-
-        private async void playerLose(int i)
-        {
-            string temp = "";
-            winloseLabel.Visible = true; reasonLabel.Visible = true;
-            winloseLabel.Text = "YOU LOSE!";
-            // reasons
-            if (i == 1) { temp = "Player bust!"; }
-            else if (i == 2) { temp = "Dealer's hand beats your's!"; }
-            reasonLabel.Text = temp + "\n no payout";
-            // hide buttons
-            hitButton.Visible = false;
-            standButton.Visible = false;
-            await waitTimer(3);
-            gameStart = false;
-            restartGame();
-        }
-
-        private async void push()
-        {
-            winloseLabel.Visible = true; reasonLabel.Visible = true;
-            winloseLabel.Text = "Push!";
-            reasonLabel.Text = "You get your bet back!";
-            // hide buttons
-            hitButton.Visible = false;
-            standButton.Visible = false;
-            await waitTimer(3);
-            // updater
-            GlobalData.riskMoney += bet;
-            playerMoneyLabel.Text = (GlobalData.riskMoney).ToString("C");
-            gameStart = false;
-            restartGame();
+                winloseLabel.Text = ""; }
         }
 
         private async Task waitTimer(int secs)
