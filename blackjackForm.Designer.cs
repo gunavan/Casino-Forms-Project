@@ -298,7 +298,7 @@
             // playerHandLabel
             // 
             this.playerHandLabel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.playerHandLabel.Font = new System.Drawing.Font("Javanese Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerHandLabel.Font = new System.Drawing.Font("Javanese Text", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerHandLabel.Location = new System.Drawing.Point(18, 666);
             this.playerHandLabel.Name = "playerHandLabel";
             this.playerHandLabel.Size = new System.Drawing.Size(199, 37);
@@ -309,7 +309,7 @@
             // dealerHandLabel
             // 
             this.dealerHandLabel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.dealerHandLabel.Font = new System.Drawing.Font("Javanese Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerHandLabel.Font = new System.Drawing.Font("Javanese Text", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dealerHandLabel.Location = new System.Drawing.Point(18, 719);
             this.dealerHandLabel.Name = "dealerHandLabel";
             this.dealerHandLabel.Size = new System.Drawing.Size(199, 38);
@@ -321,7 +321,7 @@
             // 
             this.winloseLabel.BackColor = System.Drawing.Color.Transparent;
             this.winloseLabel.Font = new System.Drawing.Font("Javanese Text", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winloseLabel.Location = new System.Drawing.Point(231, 643);
+            this.winloseLabel.Location = new System.Drawing.Point(435, 643);
             this.winloseLabel.Name = "winloseLabel";
             this.winloseLabel.Size = new System.Drawing.Size(323, 130);
             this.winloseLabel.TabIndex = 5;
@@ -333,7 +333,7 @@
             // 
             this.reasonLabel.BackColor = System.Drawing.Color.Transparent;
             this.reasonLabel.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reasonLabel.Location = new System.Drawing.Point(560, 643);
+            this.reasonLabel.Location = new System.Drawing.Point(838, 643);
             this.reasonLabel.Name = "reasonLabel";
             this.reasonLabel.Size = new System.Drawing.Size(407, 130);
             this.reasonLabel.TabIndex = 5;
@@ -376,7 +376,7 @@
             this.playerHandMenuItem,
             this.dealerHandMenuItem});
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            this.debugToolStripMenuItem.Size = new System.Drawing.Size(68, 26);
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.debugToolStripMenuItem.Text = "Debug";
             // 
             // shuffleMenuItem

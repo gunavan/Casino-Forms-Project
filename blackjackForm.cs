@@ -43,8 +43,7 @@ namespace Casino_Forms_Project
         private void hitButton_Click(object sender, EventArgs e)
         {
             // new card
-            string newCard = CardFromDeck();
-            playerCards.Add(newCard);
+            string newCard = CardFromDeck(); playerCards.Add(newCard);
             playerHand += CardValueInt(newCard);                           // counting
             if (CardValueString(newCard) == "A") { playerAces++; }      // aces
             playerHand = IfOver21("player", playerHand);                // if over and ace
@@ -66,7 +65,6 @@ namespace Casino_Forms_Project
             // dealer until 17
             while (dealerHand < 17) {
                 string newCard = CardFromDeck(); dealerCards.Add(newCard);
-                dealerCards.Add(newCard);
                 dealerHand += CardValueInt(newCard);                       // counting
                 if (CardValueString(newCard) == "A") { dealerAces++; }  // dealer ace counter
                 dealerHand = IfOver21("dealer", dealerHand);            // if over and ace
@@ -99,15 +97,11 @@ namespace Casino_Forms_Project
             // adding to list
             playerCards.Add(pc1); playerCards.Add(pc2);
             dealerCards.Add(dc1); dealerCards.Add(dc2);
-            // hand value
-            playerHand = HandValue(playerCards);
-            dealerHand = HandValue(dealerCards);
-            // counting aces
-            playerAces = AceCounter(playerCards);
-            dealerAces = AceCounter(dealerCards);
+            // hand value and aces
+            playerHand = HandValue(playerCards); playerAces = AceCounter(playerCards);
+            dealerHand = HandValue(dealerCards); dealerAces = AceCounter(dealerCards);
             // checking if over 21 on first hand. player and dealer
-            playerHand = IfOver21("player", playerHand);
-            dealerHand = IfOver21("dealer", dealerHand);
+            playerHand = IfOver21("player", playerHand); dealerHand = IfOver21("dealer", dealerHand);
             // if player is lucky
             if (playerHand == 21) { hitButton.Visible = false; }
             // output
@@ -129,9 +123,11 @@ namespace Casino_Forms_Project
         private string HandPrint(List<string> cards)
         {
             string r = "";
-            foreach (string i in cards) {
-                r += " " + ascii[i];
+            for (int i = 0; i < cards.Count; i++ ) {
+                if (i == 0) { r += ascii[cards[i]]; }
+                else { r += " " + ascii[cards[i]]; }
             }
+            //foreach (string i in cards) { r += " " + ascii[i]; }
             return r;
         }
 
@@ -153,9 +149,7 @@ namespace Casino_Forms_Project
         private int HandValue(List<string> hand)
         {
             int total = 0;
-            foreach (string card in hand) {
-                total += CardValueInt(card);
-            }
+            foreach (string card in hand) { total += CardValueInt(card); }
             return total;
         }
 
