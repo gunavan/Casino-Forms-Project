@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.blackjackButton = new System.Windows.Forms.Button();
             this.playerMoneyLabel = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
             this.blackjackButton.Name = "blackjackButton";
             this.blackjackButton.Size = new System.Drawing.Size(281, 89);
             this.blackjackButton.TabIndex = 1;
-            this.blackjackButton.Text = "blackjack";
+            this.blackjackButton.Text = "Black Jack";
             this.blackjackButton.UseVisualStyleBackColor = true;
             this.blackjackButton.Click += new System.EventHandler(this.blackjackButton_Click);
             // 
@@ -74,7 +75,7 @@
             this.label2.Text = "Balance:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // mainForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,7 +84,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.blackjackButton);
             this.Controls.Add(this.label1);
-            this.Name = "mainForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Casino";
             this.ResumeLayout(false);

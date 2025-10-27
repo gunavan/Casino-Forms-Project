@@ -46,25 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlackJackForm.Betting.cs">
+    <Compile Include="BlackJack\BlackJackForm.Betting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlackJackCardSelection.cs">
+    <Compile Include="BlackJack\BlackJackCardSelection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlackJackCardSelection.Designer.cs">
+    <Compile Include="BlackJack\BlackJackCardSelection.Designer.cs">
       <DependentUpon>BlackJackCardSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlackjackForm.cs">
+    <Compile Include="BlackJack\BlackJackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlackjackForm.Designer.cs">
-      <DependentUpon>BlackjackForm.cs</DependentUpon>
+    <Compile Include="BlackJack\BlackJackForm.Designer.cs">
+      <DependentUpon>BlackJackForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlackjackMoneyForm.cs">
+    <Compile Include="BlackJack\BlackJackForm.Screen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlackjackMoneyForm.Designer.cs">
+    <Compile Include="BlackJack\BlackjackMoneyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlackJack\BlackjackMoneyForm.Designer.cs">
       <DependentUpon>BlackjackMoneyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalData.cs" />
@@ -74,21 +77,21 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlackJackForm.MenuItems.cs">
+    <Compile Include="BlackJack\BlackJackForm.MenuItems.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlackJackForm.GameResultConditions.cs">
+    <Compile Include="BlackJack\BlackJackForm.GameResultConditions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BlackJackCardSelection.resx">
+    <EmbeddedResource Include="BlackJack\BlackJackCardSelection.resx">
       <DependentUpon>BlackJackCardSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BlackjackForm.resx">
-      <DependentUpon>BlackjackForm.cs</DependentUpon>
+    <EmbeddedResource Include="BlackJack\BlackJackForm.resx">
+      <DependentUpon>BlackJackForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BlackjackMoneyForm.resx">
+    <EmbeddedResource Include="BlackJack\BlackjackMoneyForm.resx">
       <DependentUpon>BlackjackMoneyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -102,6 +105,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -115,6 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

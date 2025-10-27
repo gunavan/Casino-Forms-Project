@@ -20,8 +20,9 @@ namespace Casino_Forms_Project
 
         private void blackjackButton_Click(object sender, EventArgs e)
         {
-            BlackjackForm bjf = new BlackjackForm();
+            BlackJackForm bjf = new BlackJackForm();
             bjf.ShowDialog();
+            GlobalData.playerMoney += GlobalData.riskMoney;
             playerMoneyLabel.Text = GlobalData.playerMoney.ToString("C");
         }
     }

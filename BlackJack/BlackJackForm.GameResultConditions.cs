@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class BlackjackForm
+    public partial class BlackJackForm
     {
         private async void PlayerWin(int i)
         {
@@ -12,7 +12,7 @@ namespace Casino_Forms_Project
             winloseLabel.Text = "YOU WIN!";
             // reasons
             if (i == 1) { temp = "Dealer bust!"; }
-            else if (i == 2) { temp = "Hand beats dealer's!"; }
+            else if (i == 2) { temp = "Your Hand beats dealer's!"; }
             reasonLabel.Text = temp + "\n x2 payout";
             // hide buttons
             hitButton.Visible = false;

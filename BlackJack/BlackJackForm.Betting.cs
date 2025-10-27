@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class BlackjackForm
+    public partial class BlackJackForm
     {
         private void oneButton_Click(object sender, EventArgs e)
         {
@@ -47,23 +47,15 @@ namespace Casino_Forms_Project
                 MessageBox.Show("You cannot bet more than you have");
                 bet = 0;
                 currentBetLabel.Text = bet.ToString("C");
-                return;
-            }
+                return; }
             if (bet == 0) {
                 MessageBox.Show("You must place a bet before starting");
-                return;
-            }
+                return; }
             GlobalData.riskMoney -= bet;
             playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
             // cycle buttons
             gameStart = true;
-
             Screen();
-
-            // testing
-            playerHandLabel.Visible = true; dealerHandLabel.Visible = true;
-
-            // start
             StartGame();
         }
     }
