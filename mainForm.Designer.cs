@@ -47,13 +47,14 @@
             // 
             // blackjackButton
             // 
+            this.blackjackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.blackjackButton.Font = new System.Drawing.Font("Javanese Text", 18F, System.Drawing.FontStyle.Bold);
             this.blackjackButton.Location = new System.Drawing.Point(34, 134);
             this.blackjackButton.Name = "blackjackButton";
             this.blackjackButton.Size = new System.Drawing.Size(281, 89);
             this.blackjackButton.TabIndex = 1;
             this.blackjackButton.Text = "Black Jack";
-            this.blackjackButton.UseVisualStyleBackColor = true;
+            this.blackjackButton.UseVisualStyleBackColor = false;
             this.blackjackButton.Click += new System.EventHandler(this.blackjackButton_Click);
             // 
             // playerMoneyLabel
@@ -79,11 +80,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(782, 553);
             this.Controls.Add(this.playerMoneyLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.blackjackButton);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

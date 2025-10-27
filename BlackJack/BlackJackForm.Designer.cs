@@ -227,6 +227,7 @@
             // 
             // hitButton
             // 
+            this.hitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.hitButton.Font = new System.Drawing.Font("Javanese Text", 12F);
             this.hitButton.Location = new System.Drawing.Point(990, 632);
             this.hitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -234,12 +235,13 @@
             this.hitButton.Size = new System.Drawing.Size(269, 71);
             this.hitButton.TabIndex = 7;
             this.hitButton.Text = "Hit";
-            this.hitButton.UseVisualStyleBackColor = true;
+            this.hitButton.UseVisualStyleBackColor = false;
             this.hitButton.Visible = false;
             this.hitButton.Click += new System.EventHandler(this.hitButton_Click);
             // 
             // standButton
             // 
+            this.standButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.standButton.Font = new System.Drawing.Font("Javanese Text", 12F);
             this.standButton.Location = new System.Drawing.Point(990, 709);
             this.standButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -247,7 +249,7 @@
             this.standButton.Size = new System.Drawing.Size(269, 71);
             this.standButton.TabIndex = 7;
             this.standButton.Text = "Stand";
-            this.standButton.UseVisualStyleBackColor = true;
+            this.standButton.UseVisualStyleBackColor = false;
             this.standButton.Visible = false;
             this.standButton.Click += new System.EventHandler(this.standButton_Click);
             // 
@@ -484,6 +486,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1277, 814);
             this.Controls.Add(this.reasonLabel);
