@@ -33,6 +33,7 @@
             this.blackjackButton = new System.Windows.Forms.Button();
             this.playerMoneyLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pokerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,9 +50,9 @@
             // 
             this.blackjackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.blackjackButton.Font = new System.Drawing.Font("Javanese Text", 18F, System.Drawing.FontStyle.Bold);
-            this.blackjackButton.Location = new System.Drawing.Point(34, 134);
+            this.blackjackButton.Location = new System.Drawing.Point(19, 134);
             this.blackjackButton.Name = "blackjackButton";
-            this.blackjackButton.Size = new System.Drawing.Size(281, 89);
+            this.blackjackButton.Size = new System.Drawing.Size(310, 90);
             this.blackjackButton.TabIndex = 1;
             this.blackjackButton.Text = "Black Jack";
             this.blackjackButton.UseVisualStyleBackColor = false;
@@ -76,14 +77,27 @@
             this.label2.Text = "Balance:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pokerButton
+            // 
+            this.pokerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pokerButton.Font = new System.Drawing.Font("Javanese Text", 18F, System.Drawing.FontStyle.Bold);
+            this.pokerButton.Location = new System.Drawing.Point(424, 134);
+            this.pokerButton.Name = "pokerButton";
+            this.pokerButton.Size = new System.Drawing.Size(310, 90);
+            this.pokerButton.TabIndex = 1;
+            this.pokerButton.Text = "Poker";
+            this.pokerButton.UseVisualStyleBackColor = false;
+            this.pokerButton.Click += new System.EventHandler(this.pokerButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
-            this.ClientSize = new System.Drawing.Size(782, 553);
+            this.ClientSize = new System.Drawing.Size(767, 553);
             this.Controls.Add(this.playerMoneyLabel);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.pokerButton);
             this.Controls.Add(this.blackjackButton);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -101,6 +115,7 @@
         private System.Windows.Forms.Button blackjackButton;
         private System.Windows.Forms.Label playerMoneyLabel;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button pokerButton;
     }
 }
 

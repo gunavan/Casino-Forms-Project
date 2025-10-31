@@ -16,24 +16,21 @@ namespace Casino_Forms_Project
         List<string> decks = new List<string>();
         Dictionary<string, string> ascii = new Dictionary<string, string>(GlobalData.asciiCards);
         private Random rng = new Random();
-
+        // experimental
+        bool experimental = true;
+        PlayerCardForm pcf; DealerCardForm dcf; Buttons b;
         public BlackJackForm()
         {
+            this.MaximizeBox = false;
             InitializeComponent();
-            BlackjackMoneyForm bjmf = new BlackjackMoneyForm();
+            MoneyForm mf = new MoneyForm(); mf.ShowDialog();
             decks = new List<string>(AddDecks(DECKAMMOUNTS));
-            bjmf.ShowDialog();
-            playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C"); playerBalanceLabel.Text = GlobalData.playerMoney.ToString("C");
+
+            pcf = new PlayerCardForm(); dcf = new DealerCardForm(); b = new Buttons(this);
+
             Screen();
         }
-        private static List<string> AddDecks(int count)
-        {
-            List<string> r = new List<string>();
-            while (count-- > 0) { r.AddRange(GlobalData.deck); }
-            return r;
-        }
-
-        private void hitButton_Click(object sender, EventArgs e)
+        public void Hit()
         {
             playerCards.Add(CardFromDeck());
             playerHand = HandValueFromCards(playerCards);
@@ -45,23 +42,42 @@ namespace Casino_Forms_Project
             if (playerHand == 21) { hitButton.Visible = false; }
         }
 
-        private void standButton_Click(object sender, EventArgs e)
+        public void Stand()
         {
             // dealer until 17
             while (dealerHand < 17) {
                 dealerCards.Add(CardFromDeck());
-                dealerHand = HandValueFromCards(dealerCards);
-            }
+                dealerHand = HandValueFromCards(dealerCards); }
             Screen();
 
             dealerExpandedHand.Text = HandPrint(dealerCards);
             dealerHandLabel.Text = dealerHand.ToString();
+
+            // experimental
+            if (experimental) { dcf.setDealerEHLabel(HandPrint(dealerCards)); }
 
             // reasons
             if (dealerHand == playerHand) { Push(); }
             else if (dealerHand > 21) { PlayerWin(1); }
             else if (dealerHand > playerHand) { PlayerLose(2); }
             else { PlayerWin(2); }
+        }
+
+        private static List<string> AddDecks(int count)
+        {
+            List<string> r = new List<string>();
+            while (count-- > 0) { r.AddRange(GlobalData.deck); }
+            return r;
+        }
+
+        private void hitButton_Click(object sender, EventArgs e)
+        {
+            Hit();
+        }
+
+        private void standButton_Click(object sender, EventArgs e)
+        {
+            Stand();
         }
 
         private string CardFromDeck()
@@ -88,6 +104,8 @@ namespace Casino_Forms_Project
             // dealer mystery output
             dealerExpandedHand.Text = ascii[dc1] + " + ?";
             dealerHandLabel.Text = GetCardValueInt(dc1).ToString() + " + ?";
+            // experimental
+            if (experimental) { dcf.setDealerEHLabel(ascii[dc1] + " + ?"); }
         }
 
         private string HandPrint(List<string> cards)
@@ -130,9 +148,12 @@ namespace Casino_Forms_Project
         {
             // if no money left
             if (GlobalData.riskMoney <= 0) {
-                MessageBox.Show("You are out of money! \nBetter luck Next Time :(");
+                MessageBox.Show("You are out of money! \nBetter luck Next Time :(", "No More Money!");
                 this.Close(); }
             gameStart = false;
+            // experimental
+            b.setStarted(false);
+            b.smallScreen();
             Screen();
             // if half cards are remaining of deck ammounts, shuffle
             if (decks.Count < (52 * DECKAMMOUNTS) / 2) { Shuffle(); }
@@ -151,6 +172,14 @@ namespace Casino_Forms_Project
         private async Task waitTimer(int secs)
         {
             await Task.Delay(secs * 1000);
+        }
+
+        // USELESS RN
+        private void screenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (experimental) { experimental = false; }
+            else { experimental = true; }
+            Screen();
         }
     }
 }

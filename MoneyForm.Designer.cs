@@ -1,6 +1,6 @@
 ﻿namespace Casino_Forms_Project
 {
-    partial class BlackjackMoneyForm
+    partial class MoneyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -84,7 +84,7 @@
             this.label2.Text = "Balance:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // blackjackMoneyForm
+            // MoneyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,9 +94,10 @@
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "blackjackMoneyForm";
+            this.Name = "MoneyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "blackjackMoneyForm";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

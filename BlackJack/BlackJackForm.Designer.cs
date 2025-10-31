@@ -68,6 +68,8 @@
             this.dCard1MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dCard2MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dNewCardMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.experimentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.screenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -362,7 +364,8 @@
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.debugToolStripMenuItem});
+            this.debugToolStripMenuItem,
+            this.experimentalToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1277, 28);
@@ -464,23 +467,38 @@
             // dCard1MenuItem
             // 
             this.dCard1MenuItem.Name = "dCard1MenuItem";
-            this.dCard1MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dCard1MenuItem.Size = new System.Drawing.Size(191, 26);
             this.dCard1MenuItem.Text = "Starting Card 1";
             this.dCard1MenuItem.Click += new System.EventHandler(this.dCard1MenuItem_Click);
             // 
             // dCard2MenuItem
             // 
             this.dCard2MenuItem.Name = "dCard2MenuItem";
-            this.dCard2MenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dCard2MenuItem.Size = new System.Drawing.Size(191, 26);
             this.dCard2MenuItem.Text = "Starting Card 2";
             this.dCard2MenuItem.Click += new System.EventHandler(this.dCard2MenuItem_Click);
             // 
             // dNewCardMenuItem
             // 
             this.dNewCardMenuItem.Name = "dNewCardMenuItem";
-            this.dNewCardMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dNewCardMenuItem.Size = new System.Drawing.Size(191, 26);
             this.dNewCardMenuItem.Text = "new Card";
             this.dNewCardMenuItem.Click += new System.EventHandler(this.dNewCardMenuItem_Click);
+            // 
+            // experimentalToolStripMenuItem
+            // 
+            this.experimentalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.screenToolStripMenuItem});
+            this.experimentalToolStripMenuItem.Name = "experimentalToolStripMenuItem";
+            this.experimentalToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.experimentalToolStripMenuItem.Text = "Experimental";
+            // 
+            // screenToolStripMenuItem
+            // 
+            this.screenToolStripMenuItem.Name = "screenToolStripMenuItem";
+            this.screenToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.screenToolStripMenuItem.Text = "Screen";
+            this.screenToolStripMenuItem.Click += new System.EventHandler(this.screenToolStripMenuItem_Click);
             // 
             // BlackJackForm
             // 
@@ -489,8 +507,6 @@
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1277, 814);
-            this.Controls.Add(this.reasonLabel);
-            this.Controls.Add(this.winloseLabel);
             this.Controls.Add(this.dealerHandLabel);
             this.Controls.Add(this.playerHandLabel);
             this.Controls.Add(this.shuffleLabel);
@@ -514,6 +530,8 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dealerExpandedHand);
             this.Controls.Add(this.playerExpandedHand);
+            this.Controls.Add(this.reasonLabel);
+            this.Controls.Add(this.winloseLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -567,5 +585,7 @@
         private System.Windows.Forms.ToolStripMenuItem dCard1MenuItem;
         private System.Windows.Forms.ToolStripMenuItem dCard2MenuItem;
         private System.Windows.Forms.ToolStripMenuItem dNewCardMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem experimentalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem screenToolStripMenuItem;
     }
 }

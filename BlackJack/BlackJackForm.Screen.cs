@@ -7,8 +7,18 @@ namespace Casino_Forms_Project
     {
         private void Screen()
         {
+            if (experimental) { 
+                pcf.Show();
+                dcf.Show();
+                b.Show(); }
+
             if (gameStart)
             {
+                if (experimental)
+                {
+                    pcf.setPlayerEHLabel(HandPrint(playerCards));
+                    dcf.setDealerEHLabel(dcf.getDealerEHLabel());
+                }
                 // phase 1
                 oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;
                 clearBetButton.Visible = false; betButton.Visible = false;

@@ -43,6 +43,24 @@ namespace Casino_Forms_Project
 
         private void betButton_Click(object sender, EventArgs e)
         {
+            PlaceBet();
+
+            // NEEDS WORK SINCE IN PLACE BET IT WILL CYCLE NO MATTER WHAT AND DONT HAVE A RECYCLE
+        }
+
+        public int getBet()
+        {
+            return bet;
+        }
+
+        public void setBet(int amount)
+        {
+            bet = amount;
+            currentBetLabel.Text = bet.ToString("C");
+        }
+
+        public void PlaceBet()
+        {
             if (bet > GlobalData.riskMoney) {
                 MessageBox.Show("You cannot bet more than you have");
                 bet = 0;
@@ -59,5 +77,4 @@ namespace Casino_Forms_Project
             StartGame();
         }
     }
-
 }
