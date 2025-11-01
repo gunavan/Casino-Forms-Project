@@ -118,6 +118,7 @@ namespace Casino_Forms_Project
             blackJackForm.setBet(GlobalData.getRiskMoney());
             currBetLabel.Text = blackJackForm.getBet().ToString("C");
             blackJackForm.PlaceBet();
+            smallScreen();
         }
     }
 }

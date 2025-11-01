@@ -166,6 +166,8 @@ namespace Casino_Forms_Project
             // if no money left
             if (GlobalData.riskMoney <= 0) {
                 MessageBox.Show("You are out of money! \nBetter luck Next Time :(", "No More Money!");
+                ReturnFromExperimental();
+                b.Close();
                 this.Close(); }
             gameStart = false;
             // experimental
