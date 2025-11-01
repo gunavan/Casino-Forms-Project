@@ -10,15 +10,31 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class DealerCardForm : Form
+    public partial class Information : Form
     {
-        public DealerCardForm()
+        public Information()
         {
             InitializeComponent();
             this.ControlBox = false;
             this.StartPosition = FormStartPosition.Manual;
             PositionForm();
         }
+
+        public void SetWinLose(string result) { winloseLabel.Text = result; }
+
+        public void SetWinLoseVisibility(bool visible) { winloseLabel.Visible = visible; }
+
+        public void SetReason(string reason) { reasonLabel.Text = reason; }
+
+        public void SetReasonVisibility(bool visible) { reasonLabel.Visible = visible; }
+
+        public void SetShuffleVisibility(bool visible) { shuffleLabel.Visible = visible; }
+
+        public void SetBlackJackMoney(string money) { playerMoneyLabel.Text = money; }
+
+        public void SetCardsRemaining(string cardsLeft) { cardsRemainingLabel.Text = cardsLeft; }
+
+        public void SetBalance(string money) { playerBalanceLabel.Text = money; }
 
         private void PositionForm()
         {
@@ -27,20 +43,10 @@ namespace Casino_Forms_Project
             // this forms w and h
             int formWidth = this.Width; int formHeight = this.Height;
             // Calculate the position
-            int x = (screenWidth - formWidth) / 2; // Center horizontally
-            int y = 10; // Start at the top
+            int x = 10;
+            int y = (screenHeight - formHeight) / 2;
 
             this.Location = new System.Drawing.Point(x, y);
-        }
-
-        public string getDealerEHLabel()
-        {
-            return dealerEHLabel.Text;
-        }
-
-        public void setDealerEHLabel(string value)
-        {
-            dealerEHLabel.Text = value;
         }
     }
 }

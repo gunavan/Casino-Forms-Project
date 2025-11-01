@@ -16,23 +16,34 @@ namespace Casino_Forms_Project
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            playerMoneyLabel.Text = GlobalData.playerMoney.ToString("C");
+            this.FormClosed += MainForm_FormClosed;
+            playerMoneyLabel.Text = GlobalData.getPlayerMoney().ToString("C");
         }
 
         private void blackjackButton_Click(object sender, EventArgs e)
         {
-            BlackJackForm bjf = new BlackJackForm();
+            this.Hide();
+            BlackJackForm bjf = new BlackJackForm(this);
             bjf.Show();
-            GlobalData.playerMoney += GlobalData.riskMoney;
-            playerMoneyLabel.Text = GlobalData.playerMoney.ToString("C");
+            //UpdateLabels();
         }
 
         private void pokerButton_Click(object sender, EventArgs e)
         {
             //PokerForm pf = new PokerForm();
             //pf.ShowDialog();
-            GlobalData.playerMoney += GlobalData.riskMoney;
-            playerMoneyLabel.Text = GlobalData.playerMoney.ToString("C");
+            //GlobalData.getPlayerMoney() += GlobalData.riskMoney;
+            playerMoneyLabel.Text = GlobalData.getPlayerMoney().ToString("C");
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        public void UpdateLabels()
+        {
+            playerMoneyLabel.Text = GlobalData.getPlayerMoney().ToString("C");
         }
     }
 }

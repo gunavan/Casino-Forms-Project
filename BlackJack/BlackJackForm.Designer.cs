@@ -1,4 +1,6 @@
-﻿namespace Casino_Forms_Project
+﻿using System;
+
+namespace Casino_Forms_Project
 {
     partial class BlackJackForm
     {
@@ -68,8 +70,8 @@
             this.dCard1MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dCard2MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dNewCardMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.experimentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.screenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.experimentalButton = new System.Windows.Forms.Button();
+            this.allInButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +100,7 @@
             // 
             this.betButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.betButton.Font = new System.Drawing.Font("Javanese Text", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.betButton.Location = new System.Drawing.Point(1013, 656);
+            this.betButton.Location = new System.Drawing.Point(947, 656);
             this.betButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.betButton.Name = "betButton";
             this.betButton.Size = new System.Drawing.Size(124, 124);
@@ -111,7 +113,7 @@
             // 
             this.oneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.oneButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oneButton.Location = new System.Drawing.Point(287, 656);
+            this.oneButton.Location = new System.Drawing.Point(221, 656);
             this.oneButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.oneButton.Name = "oneButton";
             this.oneButton.Size = new System.Drawing.Size(124, 124);
@@ -124,7 +126,7 @@
             // 
             this.fiveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.fiveButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fiveButton.Location = new System.Drawing.Point(432, 656);
+            this.fiveButton.Location = new System.Drawing.Point(366, 656);
             this.fiveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fiveButton.Name = "fiveButton";
             this.fiveButton.Size = new System.Drawing.Size(124, 124);
@@ -137,7 +139,7 @@
             // 
             this.tenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tenButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tenButton.Location = new System.Drawing.Point(579, 656);
+            this.tenButton.Location = new System.Drawing.Point(513, 656);
             this.tenButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tenButton.Name = "tenButton";
             this.tenButton.Size = new System.Drawing.Size(124, 124);
@@ -150,7 +152,7 @@
             // 
             this.twfivButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.twfivButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.twfivButton.Location = new System.Drawing.Point(723, 656);
+            this.twfivButton.Location = new System.Drawing.Point(657, 656);
             this.twfivButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.twfivButton.Name = "twfivButton";
             this.twfivButton.Size = new System.Drawing.Size(124, 124);
@@ -163,7 +165,7 @@
             // 
             this.hundButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.hundButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hundButton.Location = new System.Drawing.Point(869, 656);
+            this.hundButton.Location = new System.Drawing.Point(803, 656);
             this.hundButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hundButton.Name = "hundButton";
             this.hundButton.Size = new System.Drawing.Size(124, 124);
@@ -218,7 +220,7 @@
             // 
             this.clearBetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.clearBetButton.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBetButton.Location = new System.Drawing.Point(141, 656);
+            this.clearBetButton.Location = new System.Drawing.Point(75, 656);
             this.clearBetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clearBetButton.Name = "clearBetButton";
             this.clearBetButton.Size = new System.Drawing.Size(124, 124);
@@ -364,8 +366,7 @@
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.debugToolStripMenuItem,
-            this.experimentalToolStripMenuItem});
+            this.debugToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1277, 28);
@@ -389,35 +390,35 @@
             // shuffleMenuItem
             // 
             this.shuffleMenuItem.Name = "shuffleMenuItem";
-            this.shuffleMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.shuffleMenuItem.Size = new System.Drawing.Size(211, 26);
             this.shuffleMenuItem.Text = "Shuffle";
             this.shuffleMenuItem.Click += new System.EventHandler(this.shuffleMenuItem_Click);
             // 
             // addMenuItem
             // 
             this.addMenuItem.Name = "addMenuItem";
-            this.addMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addMenuItem.Size = new System.Drawing.Size(211, 26);
             this.addMenuItem.Text = "Add 500 Balance";
             this.addMenuItem.Click += new System.EventHandler(this.addMenuItem_Click);
             // 
             // addDeckMenuItem
             // 
             this.addDeckMenuItem.Name = "addDeckMenuItem";
-            this.addDeckMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addDeckMenuItem.Size = new System.Drawing.Size(211, 26);
             this.addDeckMenuItem.Text = "Add Deck (+1)";
             this.addDeckMenuItem.Click += new System.EventHandler(this.deckQuantityMenuItem_Click);
             // 
             // removeDeckMenuItem
             // 
             this.removeDeckMenuItem.Name = "removeDeckMenuItem";
-            this.removeDeckMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.removeDeckMenuItem.Size = new System.Drawing.Size(211, 26);
             this.removeDeckMenuItem.Text = "Remove Deck (-1)";
             this.removeDeckMenuItem.Click += new System.EventHandler(this.removeDeckMenuItem_Click);
             // 
             // refreshScreenMenuItem
             // 
             this.refreshScreenMenuItem.Name = "refreshScreenMenuItem";
-            this.refreshScreenMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.refreshScreenMenuItem.Size = new System.Drawing.Size(211, 26);
             this.refreshScreenMenuItem.Text = "Refresh Screen";
             this.refreshScreenMenuItem.Click += new System.EventHandler(this.refreshScreenMenuItem_Click);
             // 
@@ -428,7 +429,7 @@
             this.pCard2MenuItem,
             this.pNewCardMenuItem});
             this.playerHandMenuItem.Name = "playerHandMenuItem";
-            this.playerHandMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.playerHandMenuItem.Size = new System.Drawing.Size(211, 26);
             this.playerHandMenuItem.Text = "Player Hand";
             this.playerHandMenuItem.Visible = false;
             // 
@@ -460,7 +461,7 @@
             this.dCard2MenuItem,
             this.dNewCardMenuItem});
             this.dealerHandMenuItem.Name = "dealerHandMenuItem";
-            this.dealerHandMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dealerHandMenuItem.Size = new System.Drawing.Size(211, 26);
             this.dealerHandMenuItem.Text = "Dealer Hand";
             this.dealerHandMenuItem.Visible = false;
             // 
@@ -485,20 +486,32 @@
             this.dNewCardMenuItem.Text = "new Card";
             this.dNewCardMenuItem.Click += new System.EventHandler(this.dNewCardMenuItem_Click);
             // 
-            // experimentalToolStripMenuItem
+            // experimentalButton
             // 
-            this.experimentalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.screenToolStripMenuItem});
-            this.experimentalToolStripMenuItem.Name = "experimentalToolStripMenuItem";
-            this.experimentalToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
-            this.experimentalToolStripMenuItem.Text = "Experimental";
+            this.experimentalButton.BackColor = System.Drawing.Color.SeaGreen;
+            this.experimentalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.experimentalButton.Font = new System.Drawing.Font("Javanese Text", 1.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.experimentalButton.Location = new System.Drawing.Point(85, 6);
+            this.experimentalButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.experimentalButton.Name = "experimentalButton";
+            this.experimentalButton.Size = new System.Drawing.Size(52, 20);
+            this.experimentalButton.TabIndex = 7;
+            this.experimentalButton.Text = "secret experimental";
+            this.experimentalButton.UseVisualStyleBackColor = false;
+            this.experimentalButton.Click += new System.EventHandler(this.experimentalButton_Click);
             // 
-            // screenToolStripMenuItem
+            // allInButton
             // 
-            this.screenToolStripMenuItem.Name = "screenToolStripMenuItem";
-            this.screenToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.screenToolStripMenuItem.Text = "Screen";
-            this.screenToolStripMenuItem.Click += new System.EventHandler(this.screenToolStripMenuItem_Click);
+            this.allInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.allInButton.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allInButton.Location = new System.Drawing.Point(1087, 655);
+            this.allInButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.allInButton.Name = "allInButton";
+            this.allInButton.Size = new System.Drawing.Size(124, 124);
+            this.allInButton.TabIndex = 6;
+            this.allInButton.Text = "ALL IN";
+            this.allInButton.UseVisualStyleBackColor = false;
+            this.allInButton.Click += new System.EventHandler(this.allInButton_Click);
             // 
             // BlackJackForm
             // 
@@ -511,12 +524,14 @@
             this.Controls.Add(this.playerHandLabel);
             this.Controls.Add(this.shuffleLabel);
             this.Controls.Add(this.standButton);
+            this.Controls.Add(this.experimentalButton);
             this.Controls.Add(this.hitButton);
             this.Controls.Add(this.clearBetButton);
             this.Controls.Add(this.hundButton);
             this.Controls.Add(this.twfivButton);
             this.Controls.Add(this.tenButton);
             this.Controls.Add(this.fiveButton);
+            this.Controls.Add(this.allInButton);
             this.Controls.Add(this.oneButton);
             this.Controls.Add(this.betButton);
             this.Controls.Add(this.cardsRemainingLabel);
@@ -538,13 +553,14 @@
             this.Name = "BlackJackForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "blackjackForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BlackJackForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
+               
         #endregion
         private System.Windows.Forms.Label playerMoneyLabel;
         private System.Windows.Forms.Label label2;
@@ -585,7 +601,7 @@
         private System.Windows.Forms.ToolStripMenuItem dCard1MenuItem;
         private System.Windows.Forms.ToolStripMenuItem dCard2MenuItem;
         private System.Windows.Forms.ToolStripMenuItem dNewCardMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem experimentalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem screenToolStripMenuItem;
+        private System.Windows.Forms.Button experimentalButton;
+        private System.Windows.Forms.Button allInButton;
     }
 }

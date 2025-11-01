@@ -9,43 +9,55 @@ namespace Casino_Forms_Project
         {
             bet += 1;
             currentBetLabel.Text = bet.ToString("C");
+            experimentalButton.Visible = false;
         }
 
         private void fiveButton_Click(object sender, EventArgs e)
         {
             bet += 5;
             currentBetLabel.Text = bet.ToString("C");
+            experimentalButton.Visible = false;
         }
 
         private void tenButton_Click(object sender, EventArgs e)
         {
             bet += 10;
             currentBetLabel.Text = bet.ToString("C");
+            experimentalButton.Visible = false;
         }
 
         private void twfivButton_Click(object sender, EventArgs e)
         {
             bet += 25;
             currentBetLabel.Text = bet.ToString("C");
+            experimentalButton.Visible = false;
         }
 
         private void hundButton_Click(object sender, EventArgs e)
         {
             bet += 100;
             currentBetLabel.Text = bet.ToString("C");
+            experimentalButton.Visible = false;
         }
 
         private void clearBetButton_Click(object sender, EventArgs e)
         {
             bet = 0;
             currentBetLabel.Text = bet.ToString("C");
+            experimentalButton.Visible = false;
         }
 
         private void betButton_Click(object sender, EventArgs e)
         {
             PlaceBet();
+            experimentalButton.Visible = false;
+        }
 
-            // NEEDS WORK SINCE IN PLACE BET IT WILL CYCLE NO MATTER WHAT AND DONT HAVE A RECYCLE
+        private void allInButton_Click(object sender, EventArgs e)
+        {
+            bet = GlobalData.getRiskMoney();
+            currentBetLabel.Text = bet.ToString("C");
+            PlaceBet();
         }
 
         public int getBet()
@@ -73,6 +85,8 @@ namespace Casino_Forms_Project
             playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
             // cycle buttons
             gameStart = true;
+            // experimental
+            b.setStarted(true);
             Screen();
             StartGame();
         }

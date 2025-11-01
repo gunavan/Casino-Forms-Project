@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,19 +17,23 @@ namespace Casino_Forms_Project
         List<string> decks = new List<string>();
         Dictionary<string, string> ascii = new Dictionary<string, string>(GlobalData.asciiCards);
         private Random rng = new Random();
+        MainForm mainForm;
         // experimental
-        bool experimental = true;
-        PlayerCardForm pcf; DealerCardForm dcf; Buttons b;
-        public BlackJackForm()
+        bool experimental = false;
+        PlayerCardForm pcf; DealerCardForm dcf; Buttons b; Information info;
+        public BlackJackForm(MainForm main)
         {
             this.MaximizeBox = false;
             InitializeComponent();
             MoneyForm mf = new MoneyForm(); mf.ShowDialog();
             decks = new List<string>(AddDecks(DECKAMMOUNTS));
+            mainForm = main;
 
-            pcf = new PlayerCardForm(); dcf = new DealerCardForm(); b = new Buttons(this);
+            pcf = new PlayerCardForm(); dcf = new DealerCardForm(); b = new Buttons(this); info = new Information();
 
             Screen();
+
+            foreach (Form openForm in Application.OpenForms.Cast<Form>().ToList()) { if (openForm is MainForm) { openForm.Hide(); } }
         }
         public void Hit()
         {
@@ -39,7 +44,6 @@ namespace Casino_Forms_Project
 
             // check if bust, removes hit so player doesnt bust at 21
             if (playerHand > 21) { PlayerLose(1); }
-            if (playerHand == 21) { hitButton.Visible = false; }
         }
 
         public void Stand()
@@ -68,6 +72,12 @@ namespace Casino_Forms_Project
             List<string> r = new List<string>();
             while (count-- > 0) { r.AddRange(GlobalData.deck); }
             return r;
+        }
+
+        private void experimentalButton_Click(object sender, EventArgs e)
+        {
+            experimental = true; b.Show(); info.Show(); this.Hide();
+            Screen();
         }
 
         private void hitButton_Click(object sender, EventArgs e)
@@ -126,6 +136,13 @@ namespace Casino_Forms_Project
             else { return int.Parse(rank); }
         }
 
+        private void BlackJackForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GlobalData.setPlayerMoney(GlobalData.getPlayerMoney() + GlobalData.getRiskMoney());
+            mainForm.UpdateLabels();
+            mainForm.Show();
+        }
+
         private string GetCardValueString(string card)
         {
             if (card.Length == 3) { return card.Substring(0, 2); }
@@ -158,6 +175,17 @@ namespace Casino_Forms_Project
             // if half cards are remaining of deck ammounts, shuffle
             if (decks.Count < (52 * DECKAMMOUNTS) / 2) { Shuffle(); }
         }
+        public void ReturnFromExperimental()
+        {
+            if (pcf != null && !pcf.IsDisposed) pcf.Close();
+            if (dcf != null && !dcf.IsDisposed) dcf.Close();
+            if (info != null && !info.IsDisposed) info.Close();
+
+            // show the main blackjack form
+            this.Hide();
+            mainForm.Show();
+            this.Close();
+        }
 
         private async void Shuffle()
         {
@@ -165,21 +193,15 @@ namespace Casino_Forms_Project
             decks = new List<string>(AddDecks(DECKAMMOUNTS));
             // textbox
             shuffleLabel.Visible = true;
+            if (experimental) { info.SetShuffleVisibility(true); }
             await waitTimer(3);
             shuffleLabel.Visible = false;
+            if (experimental) { info.SetShuffleVisibility(false); }
         }
 
         private async Task waitTimer(int secs)
         {
             await Task.Delay(secs * 1000);
-        }
-
-        // USELESS RN
-        private void screenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (experimental) { experimental = false; }
-            else { experimental = true; }
-            Screen();
         }
     }
 }

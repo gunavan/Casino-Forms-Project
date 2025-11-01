@@ -15,7 +15,7 @@ namespace Casino_Forms_Project
         public MoneyForm()
         {
             InitializeComponent();
-            playerMoneyLabel.Text = GlobalData.playerMoney.ToString("C");
+            playerMoneyLabel.Text = GlobalData.getPlayerMoney().ToString("C");
             this.ControlBox = false;
             textBox1.KeyDown += textbox1_KeyDown;
         }
@@ -32,7 +32,7 @@ namespace Casino_Forms_Project
                 textBox1.Text = "";
                 textBox1.Focus();
                 return; }
-            if (int.Parse(textBox1.Text) > GlobalData.playerMoney) {
+            if (int.Parse(textBox1.Text) > GlobalData.getPlayerMoney()) {
                 MessageBox.Show("You dont have that much money");
                 textBox1.Text = "";
                 textBox1.Focus();
@@ -48,8 +48,8 @@ namespace Casino_Forms_Project
                 textBox1.Focus();
                 return; }
 
-            GlobalData.riskMoney = int.Parse(textBox1.Text);
-            GlobalData.playerMoney -= GlobalData.riskMoney;
+            GlobalData.setRiskMoney(int.Parse(textBox1.Text));
+            GlobalData.setPlayerMoney(GlobalData.getPlayerMoney() -  GlobalData.getRiskMoney());
             this.Close();
         }
     }

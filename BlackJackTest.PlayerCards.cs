@@ -15,6 +15,7 @@ namespace Casino_Forms_Project
         public PlayerCardForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
             this.StartPosition = FormStartPosition.Manual;
             PositionForm();
         }

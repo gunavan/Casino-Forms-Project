@@ -7,10 +7,6 @@ namespace Casino_Forms_Project
     {
         private void Screen()
         {
-            if (experimental) { 
-                pcf.Show();
-                dcf.Show();
-                b.Show(); }
 
             if (gameStart)
             {
@@ -18,35 +14,41 @@ namespace Casino_Forms_Project
                 {
                     pcf.setPlayerEHLabel(HandPrint(playerCards));
                     dcf.setDealerEHLabel(dcf.getDealerEHLabel());
+                    pcf.Show();
+                    dcf.Show();
                 }
                 // phase 1
                 oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;
-                clearBetButton.Visible = false; betButton.Visible = false;
+                clearBetButton.Visible = false; betButton.Visible = false; allInButton.Visible = false;
                 // phase 2
                 hitButton.Visible = true; standButton.Visible = true;
                 playerExpandedHand.Visible = true; dealerExpandedHand.Visible = true;
                 // textboxes refresh
-                playerExpandedHand.Text = HandPrint(playerCards); dealerExpandedHand.Text = dealerExpandedHand.Text;
+                playerExpandedHand.Text = HandPrint(playerCards);
                 playerHandLabel.Visible = true; dealerHandLabel.Visible = true;
-                playerHandLabel.Text = playerHand.ToString(); dealerHandLabel.Text = dealerHandLabel.Text;
-                winloseLabel.Text = winloseLabel.Text; reasonLabel.Text = reasonLabel.Text;
+                playerHandLabel.Text = playerHand.ToString();
                 cardsRemainingLabel.Text = decks.Count.ToString();
                 // menu items
                 playerHandMenuItem.Visible = true;
                 dealerHandMenuItem.Visible = true;
-                if (playerHand == 21) { hitButton.Visible = false; }
+                if (playerHand == 21) { hitButton.Visible = false; b.SetHitButtonsVisible(false); }
             }
             else
             {
+                if (experimental) {
+                    pcf.Hide(); dcf.Hide();
+                    info.SetBlackJackMoney(GlobalData.riskMoney.ToString("C"));
+                    info.SetBalance(GlobalData.getPlayerMoney().ToString("C"));
+                    info.SetCardsRemaining(decks.Count.ToString()); }
                 playerMoneyLabel.Text = GlobalData.riskMoney.ToString("C");
-                playerBalanceLabel.Text = GlobalData.playerMoney.ToString("C");
+                playerBalanceLabel.Text = GlobalData.getPlayerMoney().ToString("C");
                 cardsRemainingLabel.Text = decks.Count.ToString();
                 // reset bet
                 bet = 0; currentBetLabel.Text = "";
                 // cycle buttons
                 // phase 1
                 oneButton.Visible = true; fiveButton.Visible = true; tenButton.Visible = true; twfivButton.Visible = true; hundButton.Visible = true;
-                clearBetButton.Visible = true; betButton.Visible = true;
+                clearBetButton.Visible = true; betButton.Visible = true; allInButton.Visible = true;
                 winloseLabel.Visible = false; reasonLabel.Visible = false;
                 // phase 2
                 hitButton.Visible = false; standButton.Visible = false; // b
@@ -63,7 +65,6 @@ namespace Casino_Forms_Project
                 // for testing
                 playerHandLabel.Visible = false; dealerHandLabel.Visible = false;
                 playerHandLabel.Text = ""; dealerHandLabel.Text = "";
-
 
                 winloseLabel.Text = "";
             }

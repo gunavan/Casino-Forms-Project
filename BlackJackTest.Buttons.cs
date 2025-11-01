@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Casino_Forms_Project
@@ -11,9 +12,13 @@ namespace Casino_Forms_Project
         {
             InitializeComponent();
             this.blackJackForm = form;
-
             this.StartPosition = FormStartPosition.Manual;
             PositionForm();
+        }
+
+        private void Buttons_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            blackJackForm.ReturnFromExperimental();
         }
 
         private void PositionForm()
@@ -23,7 +28,7 @@ namespace Casino_Forms_Project
             // this forms w and h
             int formWidth = this.Width; int formHeight = this.Height;
             // Calculate the position
-            int x = (screenWidth - formWidth); // Center horizontally
+            int x = (screenWidth - formWidth) - 10; // Center horizontally
             int y = (screenHeight - formHeight) / 2;
             this.Location = new System.Drawing.Point(x, y);
         }
@@ -74,7 +79,6 @@ namespace Casino_Forms_Project
         private void betButton_Click(object sender, EventArgs e)
         {
             blackJackForm.PlaceBet();
-            started = true;
             smallScreen();
         }
 
@@ -83,16 +87,37 @@ namespace Casino_Forms_Project
             if (started)
             {
                 oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;
-                betButton.Visible = false; clearBetButton.Visible = false;
+                betButton.Visible = false; clearBetButton.Visible = false; allIn.Visible = false;
                 hitButton.Visible = true; standButton.Visible = true;
             }
             else
             {
+                currBetLabel.Text = "";
                 oneButton.Visible = true; fiveButton.Visible = true; tenButton.Visible = true; twfivButton.Visible = true; hundButton.Visible = true;
-                betButton.Visible = true; clearBetButton.Visible = true;
+                betButton.Visible = true; clearBetButton.Visible = true; allIn.Visible = true;
                 hitButton.Visible = false; standButton.Visible = false;
             }
         }
+
+        public void SetHitButtonsVisible(bool enable) { hitButton.Visible = enable; }
+
+        public bool GetHitButtonsVisible() { return hitButton.Visible; }
+
+        public void SetStandButtonsVisible(bool enable) { standButton.Visible = enable; }
+
+        public bool getHitButtonsVisible() { return hitButton.Visible; }
+
+        private void clearBetButton_Click(object sender, EventArgs e)
+        {
+            blackJackForm.setBet(0);
+            currBetLabel.Text = blackJackForm.getBet().ToString("C");
+        }
+
+        private void allInButton_Click(object sender, EventArgs e)
+        {
+            blackJackForm.setBet(GlobalData.getRiskMoney());
+            currBetLabel.Text = blackJackForm.getBet().ToString("C");
+            blackJackForm.PlaceBet();
+        }
     }
 }
-// HIT AND STAND STILL VISIBLE MID GAME OR AFTER GAME
