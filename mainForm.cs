@@ -16,7 +16,7 @@ namespace Casino_Forms_Project
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            this.FormClosed += MainForm_FormClosed;
+            //this.FormClosed += MainForm_FormClosed;
             playerMoneyLabel.Text = GlobalData.getPlayerMoney().ToString("C");
         }
 

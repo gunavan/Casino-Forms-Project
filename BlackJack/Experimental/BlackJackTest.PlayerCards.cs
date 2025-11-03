@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class DealerCardForm : Form
+    public partial class PlayerCardForm : Form
     {
-        public DealerCardForm()
+        public PlayerCardForm()
         {
             InitializeComponent();
             this.ControlBox = false;
@@ -28,19 +28,17 @@ namespace Casino_Forms_Project
             int formWidth = this.Width; int formHeight = this.Height;
             // Calculate the position
             int x = (screenWidth - formWidth) / 2; // Center horizontally
-            int y = 10; // Start at the top
+            int y = screenHeight - formHeight; // Start at the top
 
             this.Location = new System.Drawing.Point(x, y);
         }
 
-        public string getDealerEHLabel()
-        {
-            return dealerEHLabel.Text;
-        }
+        public string getPlayerEHLabel() { return playerEHLabel.Text; }
 
-        public void setDealerEHLabel(string value)
-        {
-            dealerEHLabel.Text = value;
-        }
+        public void setPlayerEHLabel(string value) { playerEHLabel.Text = value; }
+
+        public string getPlayerHandLabel() { return playerHandLabel.Text; }
+
+        public void setPlayerHandLabel(string value) { playerHandLabel.Text = value; }
     }
 }

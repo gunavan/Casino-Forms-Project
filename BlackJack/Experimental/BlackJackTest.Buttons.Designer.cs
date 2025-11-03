@@ -73,13 +73,14 @@
             // clearBetButton
             // 
             this.clearBetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.clearBetButton.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBetButton.Location = new System.Drawing.Point(22, 78);
+            this.clearBetButton.Font = new System.Drawing.Font("Javanese Text", 19.8F, System.Drawing.FontStyle.Bold);
+            this.clearBetButton.Location = new System.Drawing.Point(22, 73);
             this.clearBetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clearBetButton.Name = "clearBetButton";
             this.clearBetButton.Size = new System.Drawing.Size(401, 62);
             this.clearBetButton.TabIndex = 10;
             this.clearBetButton.Text = "Clear Bet";
+            this.clearBetButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.clearBetButton.UseVisualStyleBackColor = false;
             this.clearBetButton.Click += new System.EventHandler(this.clearBetButton_Click);
             // 
@@ -87,7 +88,7 @@
             // 
             this.hundButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.hundButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hundButton.Location = new System.Drawing.Point(160, 371);
+            this.hundButton.Location = new System.Drawing.Point(160, 289);
             this.hundButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hundButton.Name = "hundButton";
             this.hundButton.Size = new System.Drawing.Size(124, 124);
@@ -100,7 +101,7 @@
             // 
             this.twfivButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.twfivButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.twfivButton.Location = new System.Drawing.Point(22, 371);
+            this.twfivButton.Location = new System.Drawing.Point(22, 289);
             this.twfivButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.twfivButton.Name = "twfivButton";
             this.twfivButton.Size = new System.Drawing.Size(124, 124);
@@ -113,7 +114,7 @@
             // 
             this.tenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tenButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tenButton.Location = new System.Drawing.Point(299, 232);
+            this.tenButton.Location = new System.Drawing.Point(299, 150);
             this.tenButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tenButton.Name = "tenButton";
             this.tenButton.Size = new System.Drawing.Size(124, 124);
@@ -126,7 +127,7 @@
             // 
             this.fiveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.fiveButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fiveButton.Location = new System.Drawing.Point(160, 232);
+            this.fiveButton.Location = new System.Drawing.Point(160, 150);
             this.fiveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fiveButton.Name = "fiveButton";
             this.fiveButton.Size = new System.Drawing.Size(124, 124);
@@ -139,7 +140,7 @@
             // 
             this.oneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.oneButton.Font = new System.Drawing.Font("Javanese Text", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oneButton.Location = new System.Drawing.Point(22, 232);
+            this.oneButton.Location = new System.Drawing.Point(22, 150);
             this.oneButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.oneButton.Name = "oneButton";
             this.oneButton.Size = new System.Drawing.Size(124, 124);
@@ -152,12 +153,13 @@
             // 
             this.betButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.betButton.Font = new System.Drawing.Font("Javanese Text", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.betButton.Location = new System.Drawing.Point(299, 371);
+            this.betButton.Location = new System.Drawing.Point(22, 433);
             this.betButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.betButton.Name = "betButton";
-            this.betButton.Size = new System.Drawing.Size(124, 124);
+            this.betButton.Size = new System.Drawing.Size(401, 62);
             this.betButton.TabIndex = 16;
             this.betButton.Text = "Bet";
+            this.betButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.betButton.UseVisualStyleBackColor = false;
             this.betButton.Click += new System.EventHandler(this.betButton_Click);
             // 
@@ -185,11 +187,11 @@
             // allIn
             // 
             this.allIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.allIn.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allIn.Location = new System.Drawing.Point(22, 154);
+            this.allIn.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allIn.Location = new System.Drawing.Point(299, 290);
             this.allIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.allIn.Name = "allIn";
-            this.allIn.Size = new System.Drawing.Size(401, 62);
+            this.allIn.Size = new System.Drawing.Size(124, 123);
             this.allIn.TabIndex = 10;
             this.allIn.Text = "ALL IN";
             this.allIn.UseVisualStyleBackColor = false;

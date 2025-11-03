@@ -46,28 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlackJackTest.Buttons.cs">
+    <Compile Include="BlackJack\Experimental\BlackJackTest.Buttons.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlackJackTest.Buttons.Designer.cs">
+    <Compile Include="BlackJack\Experimental\BlackJackTest.Buttons.Designer.cs">
       <DependentUpon>BlackJackTest.Buttons.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlackJackTest.DealerCards.cs">
+    <Compile Include="BlackJack\Experimental\BlackJackTest.DealerCards.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlackJackTest.DealerCards.Designer.cs">
+    <Compile Include="BlackJack\Experimental\BlackJackTest.DealerCards.Designer.cs">
       <DependentUpon>BlackJackTest.DealerCards.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlackJackTest.Information.cs">
+    <Compile Include="BlackJack\Experimental\BlackJackTest.Information.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlackJackTest.Information.Designer.cs">
+    <Compile Include="BlackJack\Experimental\BlackJackTest.Information.Designer.cs">
       <DependentUpon>BlackJackTest.Information.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlackJackTest.PlayerCards.cs">
+    <Compile Include="BlackJack\Experimental\BlackJackTest.PlayerCards.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlackJackTest.PlayerCards.Designer.cs">
+    <Compile Include="BlackJack\Experimental\BlackJackTest.PlayerCards.Designer.cs">
       <DependentUpon>BlackJackTest.PlayerCards.cs</DependentUpon>
     </Compile>
     <Compile Include="BlackJack\BlackJackForm.Betting.cs">
@@ -109,16 +109,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BlackJackTest.Buttons.resx">
+    <EmbeddedResource Include="BlackJack\Experimental\BlackJackTest.Buttons.resx">
       <DependentUpon>BlackJackTest.Buttons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BlackJackTest.DealerCards.resx">
+    <EmbeddedResource Include="BlackJack\Experimental\BlackJackTest.DealerCards.resx">
       <DependentUpon>BlackJackTest.DealerCards.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BlackJackTest.Information.resx">
+    <EmbeddedResource Include="BlackJack\Experimental\BlackJackTest.Information.resx">
       <DependentUpon>BlackJackTest.Information.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BlackJackTest.PlayerCards.resx">
+    <EmbeddedResource Include="BlackJack\Experimental\BlackJackTest.PlayerCards.resx">
       <DependentUpon>BlackJackTest.PlayerCards.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BlackJack\BlackJackCardSelection.resx">

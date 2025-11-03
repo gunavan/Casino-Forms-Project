@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dealerEHLabel = new System.Windows.Forms.Label();
+            this.dealerHandLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dealerEHLabel
@@ -42,11 +43,22 @@
             this.dealerEHLabel.Text = "d hand";
             this.dealerEHLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // dealerHandLabel
+            // 
+            this.dealerHandLabel.BackColor = System.Drawing.Color.Transparent;
+            this.dealerHandLabel.Font = new System.Drawing.Font("Javanese Text", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerHandLabel.Location = new System.Drawing.Point(12, 205);
+            this.dealerHandLabel.Name = "dealerHandLabel";
+            this.dealerHandLabel.Size = new System.Drawing.Size(87, 58);
+            this.dealerHandLabel.TabIndex = 10;
+            this.dealerHandLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // DealerCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 281);
+            this.Controls.Add(this.dealerHandLabel);
             this.Controls.Add(this.dealerEHLabel);
             this.Name = "DealerCardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -58,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Label dealerEHLabel;
+        private System.Windows.Forms.Label dealerHandLabel;
     }
 }

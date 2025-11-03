@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.playerEHLabel = new System.Windows.Forms.Label();
+            this.playerHandLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // playerEHLabel
@@ -42,11 +43,23 @@
             this.playerEHLabel.Text = "p hand";
             this.playerEHLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // playerHandLabel
+            // 
+            this.playerHandLabel.BackColor = System.Drawing.Color.Transparent;
+            this.playerHandLabel.Font = new System.Drawing.Font("Javanese Text", 13.2F);
+            this.playerHandLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.playerHandLabel.Location = new System.Drawing.Point(12, 207);
+            this.playerHandLabel.Name = "playerHandLabel";
+            this.playerHandLabel.Size = new System.Drawing.Size(87, 58);
+            this.playerHandLabel.TabIndex = 10;
+            this.playerHandLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // PlayerCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 281);
+            this.Controls.Add(this.playerHandLabel);
             this.Controls.Add(this.playerEHLabel);
             this.Location = new System.Drawing.Point(500, 0);
             this.Name = "PlayerCardForm";
@@ -59,5 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label playerEHLabel;
+        private System.Windows.Forms.Label playerHandLabel;
     }
 }

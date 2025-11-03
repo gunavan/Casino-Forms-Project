@@ -16,6 +16,7 @@ namespace Casino_Forms_Project
                     dcf.setDealerEHLabel(dcf.getDealerEHLabel());
                     pcf.Show();
                     dcf.Show();
+                    pcf.setPlayerHandLabel(playerHand.ToString());
                 }
                 // phase 1
                 oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;

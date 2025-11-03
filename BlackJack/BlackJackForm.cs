@@ -16,6 +16,7 @@ namespace Casino_Forms_Project
         List<string> playerCards = new List<string>(); List<string> dealerCards = new List<string>();
         List<string> decks = new List<string>();
         Dictionary<string, string> ascii = new Dictionary<string, string>(GlobalData.asciiCards);
+        Dictionary<string, string> special = new Dictionary<string, string>(GlobalData.specialCards);
         private Random rng = new Random();
         MainForm mainForm;
         // experimental
@@ -53,12 +54,13 @@ namespace Casino_Forms_Project
                 dealerCards.Add(CardFromDeck());
                 dealerHand = HandValueFromCards(dealerCards); }
             Screen();
-
             dealerExpandedHand.Text = HandPrint(dealerCards);
             dealerHandLabel.Text = dealerHand.ToString();
 
             // experimental
-            if (experimental) { dcf.setDealerEHLabel(HandPrint(dealerCards)); }
+            if (experimental) { 
+                dcf.setDealerEHLabel(HandPrint(dealerCards));
+                dcf.setDealerHandLabel(dealerHand.ToString()); }
 
             // reasons
             if (dealerHand == playerHand) { Push(); }
@@ -112,10 +114,12 @@ namespace Casino_Forms_Project
             Screen();
             
             // dealer mystery output
-            dealerExpandedHand.Text = ascii[dc1] + " + ?";
+            dealerExpandedHand.Text = ascii[dc1] + " " + special["back"];
             dealerHandLabel.Text = GetCardValueInt(dc1).ToString() + " + ?";
             // experimental
-            if (experimental) { dcf.setDealerEHLabel(ascii[dc1] + " + ?"); }
+            if (experimental) { 
+                dcf.setDealerEHLabel(ascii[dc1] + " " + special["back"]);
+                dcf.setDealerHandLabel(GetCardValueString(dc1).ToString() + " + ?"); }
         }
 
         private string HandPrint(List<string> cards)
