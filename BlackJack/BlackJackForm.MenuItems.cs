@@ -10,8 +10,8 @@ namespace Casino_Forms_Project
         {
             BlackJackCardSelection bjcs = new BlackJackCardSelection();
             bjcs.ShowDialog();
-            playerCards[0] = bjcs.Card;
-            playerHand = HandValueFromCards(playerCards);
+            playerCards[0] = bjcs.GetCard();
+            playerHand = GlobalData.HandValueFromCards(playerCards);
             Screen();
         }
 
@@ -19,8 +19,8 @@ namespace Casino_Forms_Project
         {
             BlackJackCardSelection bjcs = new BlackJackCardSelection();
             bjcs.ShowDialog();
-            playerCards[1] = bjcs.Card;
-            playerHand = HandValueFromCards(playerCards);
+            playerCards[1] = bjcs.GetCard();
+            playerHand = GlobalData.HandValueFromCards(playerCards);
             Screen();
         }
         
@@ -28,8 +28,8 @@ namespace Casino_Forms_Project
         {
             BlackJackCardSelection bjcs = new BlackJackCardSelection();
             bjcs.ShowDialog();
-            playerCards.Add(bjcs.Card);
-            playerHand = HandValueFromCards(playerCards);
+            playerCards.Add(bjcs.GetCard());
+            playerHand = GlobalData.HandValueFromCards(playerCards);
 
             Screen();
         }
@@ -38,9 +38,9 @@ namespace Casino_Forms_Project
         {
             BlackJackCardSelection bjcs = new BlackJackCardSelection();
             bjcs.ShowDialog();
-            dealerCards[0] = bjcs.Card;
-            dealerHand = HandValueFromCards(dealerCards);
-            dealerExpandedHand.Text = HandPrint(dealerCards);
+            dealerCards[0] = bjcs.GetCard();
+            dealerHand = GlobalData.HandValueFromCards(dealerCards);
+            dealerExpandedHand.Text = GlobalData.HandPrint(dealerCards);
             dealerHandLabel.Text = dealerHand.ToString();
             Screen();
         }
@@ -49,9 +49,9 @@ namespace Casino_Forms_Project
         {
             BlackJackCardSelection bjcs = new BlackJackCardSelection();
             bjcs.ShowDialog();
-            dealerCards[1] = bjcs.Card;
-            dealerHand = HandValueFromCards(dealerCards);
-            dealerExpandedHand.Text = HandPrint(dealerCards);
+            dealerCards[1] = bjcs.GetCard();
+            dealerHand = GlobalData.HandValueFromCards(dealerCards);
+            dealerExpandedHand.Text = GlobalData.HandPrint(dealerCards);
             dealerHandLabel.Text = dealerHand.ToString();
             Screen();
         }
@@ -60,9 +60,9 @@ namespace Casino_Forms_Project
         {
             BlackJackCardSelection bjcs = new BlackJackCardSelection();
             bjcs.ShowDialog();
-            dealerCards.Add(bjcs.Card);
-            dealerHand = HandValueFromCards(dealerCards);
-            dealerExpandedHand.Text = HandPrint(dealerCards);
+            dealerCards.Add(bjcs.GetCard());
+            dealerHand = GlobalData.HandValueFromCards(dealerCards);
+            dealerExpandedHand.Text = GlobalData.HandPrint(dealerCards);
             dealerHandLabel.Text = dealerHand.ToString();
             Screen();
         }

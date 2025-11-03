@@ -23,12 +23,70 @@ namespace Casino_Forms_Project
         public static Dictionary<string, string> specialCards = new Dictionary<string, string> {
             { "back", "🂠" }, { "jR", "🂿" }, { "jB", "🃏︎" }, { "jW", "🃟" } };
 
+        // player money
         public static int getPlayerMoney() { return playerMoney; }
 
         public static void setPlayerMoney(int amount) { playerMoney = amount; }
 
+        // risk money
         public static int getRiskMoney() { return riskMoney; }
 
         public static void setRiskMoney(int amount) { riskMoney = amount; }
+
+        // hand value from list of cards
+        public static int HandValueFromCards(List<string> hand)
+        {
+            int handValue = 0, aces = 0;
+            foreach (string card in hand) {
+                handValue += GetCardValueInt(card);
+                if (GetCardValueString(card) == "A") { aces++; } }
+            while (handValue > 21 && aces > 0) {
+                handValue -= 10;
+                aces--; }
+            return handValue;
+        }
+
+        // card value STRING
+        public static string GetCardValueString(string card)
+        {
+            if (card.Length == 3) { return card.Substring(0, 2); }
+            else { return card.Substring(0, 1); }
+        }
+
+        // card value INT
+        public static int GetCardValueInt(string card)
+        {
+            string rank = GetCardValueString(card);
+
+            if (rank == "A") { return 11; }
+            else if (rank == "J" || rank == "Q" || rank == "K") { return 10; }
+            else { return int.Parse(rank); }
+        }
+        // hand print
+        public static string HandPrint(List<string> cards)
+        {
+            string r = "";
+            for (int i = 0; i < cards.Count; i++) {
+                if (i == 0) { r = asciiCards[cards[i]]; }
+                else { r += " " + asciiCards[cards[i]]; } }
+            return r;
+        }
+
+        // adding decks
+        public static List<string> AddDecks(int count)
+        {
+            List<string> r = new List<string>();
+            while (count-- > 0) { r.AddRange(GlobalData.deck); }
+            return r;
+        }
+
+        // card from deck
+        public static string CardFromDeck(Random rng, List<string> decks)
+        {
+            int index = rng.Next(0, decks.Count());
+            string temp = decks[index];
+            decks.RemoveAt(index);
+            return temp;
+        }
     } 
 }

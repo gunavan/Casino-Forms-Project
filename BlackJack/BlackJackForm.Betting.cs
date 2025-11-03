@@ -86,7 +86,7 @@ namespace Casino_Forms_Project
             // cycle buttons
             gameStart = true;
             // experimental
-            b.setStarted(true);
+            b.SetStarted(true);
             Screen();
             StartGame();
         }

@@ -33,12 +33,12 @@ namespace Casino_Forms_Project
             this.Location = new System.Drawing.Point(x, y);
         }
 
-        public string getDealerEHLabel() { return dealerEHLabel.Text; }
+        public string GetDealerEHLabel() { return dealerEHLabel.Text; }
 
-        public void setDealerEHLabel(string value) { dealerEHLabel.Text = value; }
+        public void SetDealerEHLabel(string value) { dealerEHLabel.Text = value; }
 
-        public string getDealerHandLabel() { return dealerHandLabel.Text; }
+        public string GetDealerHandLabel() { return dealerHandLabel.Text; }
 
-        public void setDealerHandLabel(string value) { dealerHandLabel.Text = value; } 
+        public void SetDealerHandLabel(string value) { dealerHandLabel.Text = value; } 
     }
 }

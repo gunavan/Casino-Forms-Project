@@ -12,11 +12,11 @@ namespace Casino_Forms_Project
             {
                 if (experimental)
                 {
-                    pcf.setPlayerEHLabel(HandPrint(playerCards));
-                    dcf.setDealerEHLabel(dcf.getDealerEHLabel());
+                    pcf.SetPlayerEHLabel(GlobalData.HandPrint(playerCards));
+                    dcf.SetDealerEHLabel(dcf.GetDealerEHLabel());
                     pcf.Show();
                     dcf.Show();
-                    pcf.setPlayerHandLabel(playerHand.ToString());
+                    pcf.SetPlayerHandLabel(playerHand.ToString());
                 }
                 // phase 1
                 oneButton.Visible = false; fiveButton.Visible = false; tenButton.Visible = false; twfivButton.Visible = false; hundButton.Visible = false;
@@ -25,7 +25,7 @@ namespace Casino_Forms_Project
                 hitButton.Visible = true; standButton.Visible = true;
                 playerExpandedHand.Visible = true; dealerExpandedHand.Visible = true;
                 // textboxes refresh
-                playerExpandedHand.Text = HandPrint(playerCards);
+                playerExpandedHand.Text = GlobalData.HandPrint(playerCards);
                 playerHandLabel.Visible = true; dealerHandLabel.Visible = true;
                 playerHandLabel.Text = playerHand.ToString();
                 cardsRemainingLabel.Text = decks.Count.ToString();

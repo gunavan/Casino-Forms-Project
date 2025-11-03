@@ -42,9 +42,9 @@ namespace Casino_Forms_Project
             blackJackForm.Stand();
         }
 
-        public bool getStarted() { return started; }
+        public bool GetStarted() { return started; }
 
-        public void setStarted(bool r) { started = r; }
+        public void SetStarted(bool r) { started = r; }
 
         private void oneButton_Click(object sender, EventArgs e)
         {
@@ -79,10 +79,10 @@ namespace Casino_Forms_Project
         private void betButton_Click(object sender, EventArgs e)
         {
             blackJackForm.PlaceBet();
-            smallScreen();
+            SmallScreen();
         }
 
-        public void smallScreen()
+        public void SmallScreen()
         {
             if (started)
             {
@@ -105,7 +105,7 @@ namespace Casino_Forms_Project
 
         public void SetStandButtonsVisible(bool enable) { standButton.Visible = enable; }
 
-        public bool getHitButtonsVisible() { return hitButton.Visible; }
+        public bool GetStandButtonsVisible() { return standButton.Visible; }
 
         private void clearBetButton_Click(object sender, EventArgs e)
         {
@@ -118,7 +118,7 @@ namespace Casino_Forms_Project
             blackJackForm.setBet(GlobalData.getRiskMoney());
             currBetLabel.Text = blackJackForm.getBet().ToString("C");
             blackJackForm.PlaceBet();
-            smallScreen();
+            SmallScreen();
         }
     }
 }

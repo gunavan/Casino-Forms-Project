@@ -22,10 +22,7 @@ namespace Casino_Forms_Project
             
         }
 
-        public string Card
-        {
-            get { return newCard; }
-        }
+        public string GetCard() { return newCard; }
 
         private void doneButton_Click(object sender, EventArgs e)
         {
