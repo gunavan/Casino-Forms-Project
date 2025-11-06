@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Casino_Forms_Project
+{
+    public partial class PkFloppinator : Form
+    {
+        public PkFloppinator()
+        {
+            InitializeComponent();
+            this.ControlBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+    }
+}

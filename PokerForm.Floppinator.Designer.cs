@@ -1,6 +1,6 @@
 ﻿namespace Casino_Forms_Project
 {
-    partial class BJPlayerCardForm
+    partial class PkFloppinator
     {
         /// <summary>
         /// Required designer variable.
@@ -29,43 +29,28 @@
         private void InitializeComponent()
         {
             this.playerEHLabel = new System.Windows.Forms.Label();
-            this.playerHandLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // playerEHLabel
             // 
             this.playerEHLabel.BackColor = System.Drawing.Color.Transparent;
             this.playerEHLabel.Font = new System.Drawing.Font("Javanese Text", 85.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerEHLabel.Location = new System.Drawing.Point(12, 20);
+            this.playerEHLabel.Location = new System.Drawing.Point(-6, 9);
             this.playerEHLabel.Name = "playerEHLabel";
-            this.playerEHLabel.Size = new System.Drawing.Size(1252, 245);
-            this.playerEHLabel.TabIndex = 9;
-            this.playerEHLabel.Text = "p hand";
-            this.playerEHLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.playerEHLabel.Size = new System.Drawing.Size(915, 222);
+            this.playerEHLabel.TabIndex = 11;
+            this.playerEHLabel.Text = "🂢 🂢 🂢 🂢 🂢";
+            this.playerEHLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // playerHandLabel
-            // 
-            this.playerHandLabel.BackColor = System.Drawing.Color.Transparent;
-            this.playerHandLabel.Font = new System.Drawing.Font("Javanese Text", 13.2F);
-            this.playerHandLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.playerHandLabel.Location = new System.Drawing.Point(12, 207);
-            this.playerHandLabel.Name = "playerHandLabel";
-            this.playerHandLabel.Size = new System.Drawing.Size(87, 58);
-            this.playerHandLabel.TabIndex = 10;
-            this.playerHandLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // BJPlayerCardForm
+            // PkFloppinator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1277, 281);
-            this.Controls.Add(this.playerHandLabel);
+            this.ClientSize = new System.Drawing.Size(902, 253);
             this.Controls.Add(this.playerEHLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Location = new System.Drawing.Point(500, 0);
-            this.Name = "BJPlayerCardForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "You!";
+            this.Name = "PkFloppinator";
+            this.Text = "p";
             this.ResumeLayout(false);
 
         }
@@ -73,6 +58,5 @@
         #endregion
 
         private System.Windows.Forms.Label playerEHLabel;
-        private System.Windows.Forms.Label playerHandLabel;
     }
 }

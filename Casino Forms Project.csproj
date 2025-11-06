@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PokerForm.OpponetsSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PokerForm.OpponetsSelect.Designer.cs">
+      <DependentUpon>PokerForm.OpponetsSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="BlackJack\Experimental\BlackJackTest.Buttons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,18 @@
     <Compile Include="BlackJack\BlackJackForm.Screen.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PokerForm.Floppinator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PokerForm.Floppinator.Designer.cs">
+      <DependentUpon>PokerForm.Floppinator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PokerForm.OpponentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PokerForm.OpponentForm.Designer.cs">
+      <DependentUpon>PokerForm.OpponentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MoneyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,8 +125,24 @@
     <Compile Include="BlackJack\BlackJackForm.GameResultConditions.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PokerForm.cs" />
+    <Compile Include="PokerForm.PlayerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PokerForm.PlayerForm.Designer.cs">
+      <DependentUpon>PokerForm.PlayerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PokerForm.Buttons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PokerForm.Buttons.Designer.cs">
+      <DependentUpon>PokerForm.Buttons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PokerForm.OpponetsSelect.resx">
+      <DependentUpon>PokerForm.OpponetsSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BlackJack\Experimental\BlackJackTest.Buttons.resx">
       <DependentUpon>BlackJackTest.Buttons.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +166,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PokerForm.Floppinator.resx">
+      <DependentUpon>PokerForm.Floppinator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PokerForm.Buttons.resx">
+      <DependentUpon>PokerForm.Buttons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PokerForm.OpponentForm.resx">
+      <DependentUpon>PokerForm.OpponentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PokerForm.PlayerForm.resx">
+      <DependentUpon>PokerForm.PlayerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

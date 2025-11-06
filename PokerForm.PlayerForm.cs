@@ -10,13 +10,14 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class BJPlayerCardForm : Form
+    public partial class PkPlayerCardForm : Form
     {
-        public BJPlayerCardForm()
+        bool dealerChip = false, small = false, big = false;
+        public PkPlayerCardForm()
         {
             InitializeComponent();
-            this.ControlBox = false;
             this.StartPosition = FormStartPosition.Manual;
+            this.ControlBox = false;
             PositionForm();
         }
 
@@ -27,18 +28,24 @@ namespace Casino_Forms_Project
             // this forms w and h
             int formWidth = this.Width; int formHeight = this.Height;
             // Calculate the position
-            int x = (screenWidth - formWidth) / 2; // Center horizontally
-            int y = screenHeight - formHeight; // Start at the top
+            int x = (screenWidth - formWidth) / 2; 
+            int y = screenHeight - formHeight; 
 
             this.Location = new System.Drawing.Point(x, y);
         }
 
-        public string GetPlayerEHLabel() { return playerEHLabel.Text; }
+        public bool GetDealer() { return dealerChip; }
 
-        public void SetPlayerEHLabel(string value) { playerEHLabel.Text = value; }
+        public bool GetSmall() { return small; }
 
-        public string GetPlayerHandLabel() { return playerHandLabel.Text; }
+        public bool GetBig() { return big; }
 
-        public void SetPlayerHandLabel(string value) { playerHandLabel.Text = value; }
+        public void SetDealer(bool b) { dealerChip = b; }
+
+        public void SetSmall(bool b) { small = b; }
+
+        public void SetBig(bool b) { big = b; }
+
+        
     }
 }

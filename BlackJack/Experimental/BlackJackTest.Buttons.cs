@@ -4,21 +4,23 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class Buttons : Form
+    public partial class BJButtons : Form
     {
         private BlackJackForm blackJackForm;
         bool started = false;
-        public Buttons(BlackJackForm form)
+        public BJButtons(BlackJackForm form)
         {
             InitializeComponent();
             this.blackJackForm = form;
             this.StartPosition = FormStartPosition.Manual;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             PositionForm();
         }
 
         private void Buttons_FormClosed(object sender, FormClosedEventArgs e)
         {
-            blackJackForm.ReturnFromExperimental();
+            blackJackForm.ReturnToMain();
         }
 
         private void PositionForm()

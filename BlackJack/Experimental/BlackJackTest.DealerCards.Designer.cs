@@ -1,6 +1,6 @@
 ﻿namespace Casino_Forms_Project
 {
-    partial class DealerCardForm
+    partial class BJDealerCardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -53,16 +53,17 @@
             this.dealerHandLabel.TabIndex = 10;
             this.dealerHandLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // DealerCardForm
+            // BJDealerCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 281);
             this.Controls.Add(this.dealerHandLabel);
             this.Controls.Add(this.dealerEHLabel);
-            this.Name = "DealerCardForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Name = "BJDealerCardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Dealer\'s Cards";
+            this.Text = "Judas";
             this.ResumeLayout(false);
 
         }

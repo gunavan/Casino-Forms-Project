@@ -10,35 +10,32 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class BJPlayerCardForm : Form
+    public partial class PkButtonsForm : Form
     {
-        public BJPlayerCardForm()
+        private PokerForm pokerForm;
+        public PkButtonsForm(PokerForm poker)
         {
             InitializeComponent();
-            this.ControlBox = false;
             this.StartPosition = FormStartPosition.Manual;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.pokerForm = poker;
             PositionForm();
         }
 
         private void PositionForm()
         {
-            // screen w and h
             int screenWidth = Screen.PrimaryScreen.WorkingArea.Width; int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
-            // this forms w and h
             int formWidth = this.Width; int formHeight = this.Height;
             // Calculate the position
-            int x = (screenWidth - formWidth) / 2; // Center horizontally
-            int y = screenHeight - formHeight; // Start at the top
-
+            int x = screenWidth - formWidth;
+            int y = screenHeight - formHeight;
             this.Location = new System.Drawing.Point(x, y);
         }
 
-        public string GetPlayerEHLabel() { return playerEHLabel.Text; }
-
-        public void SetPlayerEHLabel(string value) { playerEHLabel.Text = value; }
-
-        public string GetPlayerHandLabel() { return playerHandLabel.Text; }
-
-        public void SetPlayerHandLabel(string value) { playerHandLabel.Text = value; }
+        private void PkButtonsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pokerForm.ReturnToMain();   
+        }
     }
 }

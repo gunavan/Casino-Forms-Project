@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
     public static class GlobalData
     {
+        public static int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
+        public static int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
         public static int playerMoney = 1000;       // starting money for player (will be updated)
         public static int riskMoney = 0;            // money when in the different games
         public static List<string> deck = new List<string> {
@@ -22,6 +25,11 @@ namespace Casino_Forms_Project
             { "Ad", "🃁" },{ "2d", "🃂" },{ "3d", "🃃" },{ "4d", "🃄" },{ "5d", "🃅" },{ "6d", "🃆" },{ "7d", "🃇" },{ "8d", "🃈" },{ "9d", "🃉" },{ "10d", "🃊" },{ "Jd", "🃋" },{ "Qd", "🃍" },{ "Kd", "🃎" } };
         public static Dictionary<string, string> specialCards = new Dictionary<string, string> {
             { "back", "🂠" }, { "jR", "🂿" }, { "jB", "🃏︎" }, { "jW", "🃟" } };
+
+        // screen
+        public static int getScreenWidth() { return screenWidth; }
+
+        public static int getScreenHeight() { return screenHeight; }
 
         // player money
         public static int getPlayerMoney() { return playerMoney; }

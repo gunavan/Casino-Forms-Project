@@ -1,6 +1,6 @@
 ﻿namespace Casino_Forms_Project
 {
-    partial class Buttons
+    partial class BJButtons
     {
         /// <summary>
         /// Required designer variable.
@@ -214,6 +214,7 @@
             this.Controls.Add(this.betButton);
             this.Controls.Add(this.standButton);
             this.Controls.Add(this.hitButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Buttons";
             this.Text = "Buttons n Stuff";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Buttons_FormClosed);

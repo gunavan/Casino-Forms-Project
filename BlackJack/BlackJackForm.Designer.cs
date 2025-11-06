@@ -547,6 +547,7 @@ namespace Casino_Forms_Project
             this.Controls.Add(this.playerExpandedHand);
             this.Controls.Add(this.reasonLabel);
             this.Controls.Add(this.winloseLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

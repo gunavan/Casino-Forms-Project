@@ -16,6 +16,7 @@ namespace Casino_Forms_Project
         {
             InitializeComponent();
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             //this.FormClosed += MainForm_FormClosed;
             playerMoneyLabel.Text = GlobalData.getPlayerMoney().ToString("C");
         }
@@ -30,8 +31,9 @@ namespace Casino_Forms_Project
 
         private void pokerButton_Click(object sender, EventArgs e)
         {
-            //PokerForm pf = new PokerForm();
-            //pf.ShowDialog();
+            this.Hide();
+            PokerForm pf = new PokerForm(this);
+            //pf.Show();
             //GlobalData.getPlayerMoney() += GlobalData.riskMoney;
             playerMoneyLabel.Text = GlobalData.getPlayerMoney().ToString("C");
         }

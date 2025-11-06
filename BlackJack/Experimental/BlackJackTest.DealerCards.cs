@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class DealerCardForm : Form
+    public partial class BJDealerCardForm : Form
     {
-        public DealerCardForm()
+        public BJDealerCardForm()
         {
             InitializeComponent();
             this.ControlBox = false;

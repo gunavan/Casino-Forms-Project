@@ -19,7 +19,7 @@ namespace Casino_Forms_Project
         private Random rng = new Random();
         MainForm mainForm;
         // experimental forms
-        PlayerCardForm pcf; DealerCardForm dcf; Buttons b; Information info;
+        BJPlayerCardForm pcf; BJDealerCardForm dcf; BJButtons b; BJInformation info;
         public BlackJackForm(MainForm main)
         {
             this.MaximizeBox = false;
@@ -28,11 +28,9 @@ namespace Casino_Forms_Project
             decks = new List<string>(GlobalData.AddDecks(count: DECKAMMOUNTS));
             mainForm = main;
 
-            pcf = new PlayerCardForm(); dcf = new DealerCardForm(); b = new Buttons(this); info = new Information();
+            pcf = new BJPlayerCardForm(); dcf = new BJDealerCardForm(); b = new BJButtons(this); info = new BJInformation();
 
             Screen();
-            // hiding main
-            foreach (Form openForm in Application.OpenForms.Cast<Form>().ToList()) { if (openForm is MainForm) { openForm.Hide(); } }
         }
 
         // buttons
@@ -107,9 +105,8 @@ namespace Casino_Forms_Project
             // if no money left
             if (GlobalData.riskMoney <= 0) {
                 MessageBox.Show("You are out of money! \nBetter luck Next Time :(", "No More Money!");
-                ReturnFromExperimental();
-                b.Close();
-                this.Close(); }
+                ReturnToMain();
+                b.Close(); }
             gameStart = false;
             // experimental
             b.SetStarted(false);
@@ -118,14 +115,13 @@ namespace Casino_Forms_Project
             // if half cards are remaining of deck ammounts, shuffle
             if (decks.Count < (52 * DECKAMMOUNTS) / 2) { Shuffle(); }
         }
-        public void ReturnFromExperimental()
+        public void ReturnToMain()
         {
             if (pcf != null && !pcf.IsDisposed) pcf.Close();
             if (dcf != null && !dcf.IsDisposed) dcf.Close();
             if (info != null && !info.IsDisposed) info.Close();
 
             // show the main blackjack form
-            this.Hide();
             mainForm.Show();
             this.Close();
         }

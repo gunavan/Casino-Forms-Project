@@ -1,6 +1,6 @@
 ﻿namespace Casino_Forms_Project
 {
-    partial class Information
+    partial class BJInformation
     {
         /// <summary>
         /// Required designer variable.
@@ -152,6 +152,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.playerMoneyLabel);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Information";
             this.Text = "Information";
             this.ResumeLayout(false);

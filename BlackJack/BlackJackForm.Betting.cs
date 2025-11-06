@@ -90,5 +90,18 @@ namespace Casino_Forms_Project
             Screen();
             StartGame();
         }
+
+        //private void InitializeComponent()
+        //{
+        //    this.SuspendLayout();
+        //    // 
+        //    // BlackJackForm
+        //    // 
+        //    this.ClientSize = new System.Drawing.Size(282, 253);
+        //    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+        //    this.Name = "BlackJackForm";
+        //    this.ResumeLayout(false);
+
+        //}
     }
 }

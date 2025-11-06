@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Casino_Forms_Project
 {
-    public partial class Information : Form
+    public partial class BJInformation : Form
     {
-        public Information()
+        public BJInformation()
         {
             InitializeComponent();
             this.ControlBox = false;
