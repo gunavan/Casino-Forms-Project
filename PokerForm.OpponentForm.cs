@@ -38,6 +38,6 @@ namespace Casino_Forms_Project
 
         public void FormStartingPosition(int x, int y) { this.Location = new System.Drawing.Point(x, y); }
 
-        public void SetOpponentName(string opponentName) { this.Text = opponentName; }
+        public void SetName(string name) { this.Text = name; }
     }
 }

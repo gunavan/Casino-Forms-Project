@@ -18,21 +18,11 @@ namespace Casino_Forms_Project
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
             this.ControlBox = false;
-            PositionForm();
+            //PositionForm();
         }
+        public void SetName(string name) { this.Text = name; }
 
-        private void PositionForm()
-        {
-            // screen w and h
-            int screenWidth = Screen.PrimaryScreen.WorkingArea.Width; int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
-            // this forms w and h
-            int formWidth = this.Width; int formHeight = this.Height;
-            // Calculate the position
-            int x = (screenWidth - formWidth) / 2; 
-            int y = screenHeight - formHeight; 
-
-            this.Location = new System.Drawing.Point(x, y);
-        }
+        public void FormStartingPosition(int x, int y) { this.Location = new System.Drawing.Point(x, y); }
 
         public bool GetDealer() { return dealerChip; }
 

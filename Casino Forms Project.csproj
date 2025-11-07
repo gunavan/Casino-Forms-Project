@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PkPlayable.cs" />
     <Compile Include="PokerForm.OpponetsSelect.cs">
       <SubType>Form</SubType>
     </Compile>
