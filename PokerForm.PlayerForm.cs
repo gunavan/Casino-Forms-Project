@@ -24,11 +24,15 @@ namespace Casino_Forms_Project
 
         public void FormStartingPosition(int x, int y) { this.Location = new System.Drawing.Point(x, y); }
 
+        public string GetPrintedHand() { return printedHandLabel.Text; }
+
         public bool GetDealer() { return dealerChip; }
 
         public bool GetSmall() { return small; }
 
         public bool GetBig() { return big; }
+
+        public void SetPrintedHand(string hand) { printedHandLabel.Text = hand; }
 
         public void SetDealer(bool b) { dealerChip = b; }
 

@@ -20,11 +20,19 @@ namespace Casino_Forms_Project
             this.StartPosition = FormStartPosition.Manual;
         }
 
+        public int GetHandValue() { return int.Parse(handValueLabel.Text); }
+
+        public string GetExpandedHand() { return printedHandLabel.Text; }
+
         public bool GetDealer() { return dealerChip; }
 
         public bool GetSmall() { return small; }
 
         public bool GetBig() { return big; }
+
+        public void SetHandValue(int v) { handValueLabel.Text = v.ToString(); }
+
+        public void SetExpandedHand(string s) { printedHandLabel.Text = s; }
 
         public void SetDealer(bool b) { dealerChip = b; }
 

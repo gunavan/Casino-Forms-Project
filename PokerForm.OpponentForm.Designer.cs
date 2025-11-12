@@ -41,7 +41,7 @@
             this.handValueLabel.Name = "handValueLabel";
             this.handValueLabel.Size = new System.Drawing.Size(87, 52);
             this.handValueLabel.TabIndex = 13;
-            this.handValueLabel.Text = "126";
+            this.handValueLabel.Text = "1";
             this.handValueLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // printedHandLabel
