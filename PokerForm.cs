@@ -8,19 +8,13 @@ namespace Casino_Forms_Project
 {
     public partial class PokerForm
     {
-        int numOpponents, phase, dealerPosition;
+        int currPlaying, phase, dealerPosition;
         int DECKSAMMOUNT = 4;
         List<string> decks, playerCards = new List<string>();
-        List<PkOppForm> allOpponents, opponents; 
+        List<PkOppForm> allOpponents, opponents;
+        PkOppForm ply, opp1, opp2, opp3, opp4;
         private Random rng = new Random();
-        MainForm mainForm;
-        // creating forms
-        //PkPlayerCardForm pcf;
-        PkButtonsForm b;
-        PkOppForm ply; PkOppForm opp1; PkOppForm opp2; PkOppForm opp3; PkOppForm opp4;
-        
-        
-        PkFloppinator fl;
+        MainForm mainForm; PkButtonsForm b; PkFloppinator fl;
         public PokerForm(MainForm main)
         {
             mainForm = main;
@@ -58,10 +52,10 @@ namespace Casino_Forms_Project
             // opponents
                 // phase #0
             PkOpponentsSelect pkos = new PkOpponentsSelect();
-            pkos.ShowDialog(); numOpponents = pkos.GetOpponents() + 1;
+            pkos.ShowDialog(); currPlaying = pkos.GetOpponents() + 1;
             
             // adding player and num of opponents
-            for (int i = 0; i < numOpponents; i++) {
+            for (int i = 0; i < currPlaying; i++) {
                 opponents.Add(allOpponents[i]);
                 opponents[i].FormStartingPosition(xpositions[i], ypositions[i]);
                 opponents[i].Text = names[i];
@@ -70,18 +64,18 @@ namespace Casino_Forms_Project
 
             // getting dealer, small, big chips
             // if 2 check what should happen
-            Random rng = new Random(); dealerPosition = rng.Next(0, opponents.Count-1);
+            dealerPosition = rng.Next(0, currPlaying-1);
             ChipsRotator();
             
             b.Show();
-            phase = 1;
+            PhaseRotator();
         }
 
         private void ChipsRotator()
         {
             int temp = dealerPosition; opponents[temp].SetDealer(true);
-            temp++; if (temp > numOpponents-1) { temp = 0; } opponents[temp].SetSmall(true);
-            temp++; if (temp > numOpponents-1) { temp = 0; } opponents[temp].SetBig(true);
+            temp++; if (temp > currPlaying-1) { temp = 0; } opponents[temp].SetSmall(true);
+            temp++; if (temp > currPlaying-1) { temp = 0; } opponents[temp].SetBig(true);
         }
 
         private void PhaseRotator()
