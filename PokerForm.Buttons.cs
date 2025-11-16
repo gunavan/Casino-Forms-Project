@@ -37,5 +37,10 @@ namespace Casino_Forms_Project
         {
             pokerForm.ReturnToMain();   
         }
+
+        private void checkButton_Click(object sender, EventArgs e)
+        {
+            pokerForm.updatelabel();
+        }
     }
 }

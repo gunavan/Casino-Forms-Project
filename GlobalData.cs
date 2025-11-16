@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace Casino_Forms_Project
             { "Ah", "🂱" },{ "2h", "🂲" },{ "3h", "🂳" },{ "4h", "🂴" },{ "5h", "🂵" },{ "6h", "🂶" },{ "7h", "🂷" },{ "8h", "🂸" },{ "9h", "🂹" },{ "10h", "🂺" },{ "Jh", "🂻" },{ "Qh", "🂽" },{ "Kh", "🂾" },
             { "Ad", "🃁" },{ "2d", "🃂" },{ "3d", "🃃" },{ "4d", "🃄" },{ "5d", "🃅" },{ "6d", "🃆" },{ "7d", "🃇" },{ "8d", "🃈" },{ "9d", "🃉" },{ "10d", "🃊" },{ "Jd", "🃋" },{ "Qd", "🃍" },{ "Kd", "🃎" } };
         public static Dictionary<string, string> specialCards = new Dictionary<string, string> {
-            { "back", "🂠" }, { "jR", "🂿" }, { "jB", "🃏︎" }, { "jW", "🃟" } };
+            { "back", "🂠" }, { "jR", "🂿" }, { "jB", "🃏︎" }, { "jW", "🃟" }, { "s", "♠" }, { "c", "♣" }, { "h", "♥" }, { "d", "♦" } };
 
         // screen
         public static int getScreenWidth() { return screenWidth; }
@@ -52,6 +53,16 @@ namespace Casino_Forms_Project
                 handValue -= 10;
                 aces--; }
             return handValue;
+        }
+
+        // translator
+
+        public static string TranslateCard(string card)
+        {
+            string suit = card.Substring(card.Length - 1);
+            string r = GetCardValueString(card);
+            
+            return r + specialCards[suit];
         }
 
         // card value STRING

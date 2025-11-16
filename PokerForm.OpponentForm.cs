@@ -12,7 +12,8 @@ namespace Casino_Forms_Project
 {
     public partial class PkOppForm : Form
     {
-        bool dealerChip = false, small = false, big = false;
+        bool dealer = false, small = false, big = false, player = false;
+        int bet = 0;
         public PkOppForm()
         {
             InitializeComponent();
@@ -20,21 +21,39 @@ namespace Casino_Forms_Project
             this.StartPosition = FormStartPosition.Manual;
         }
 
+        public void UpdateChipLabel()
+        {
+            if (dealer) { chipLabel.Text = "D"; return; }
+            if (small) { chipLabel.Text = "S"; return; }
+            if (big) { chipLabel.Text = "B"; return; }
+            if (!dealer || !small || !big) { chipLabel.Text = ""; return; }
+        }
+
+        public void ResetBet() { bet = 0; }
+
+        public int GetBetMoneyLabel() { return bet; }
+
+        public bool GetIsPlayer() { return player;  }
+
         public int GetHandValue() { return int.Parse(handValueLabel.Text); }
 
         public string GetExpandedHand() { return printedHandLabel.Text; }
 
-        public bool GetDealer() { return dealerChip; }
+        public bool GetDealer() { return dealer; }
 
         public bool GetSmall() { return small; }
 
         public bool GetBig() { return big; }
 
-        public void SetHandValue(int v) { handValueLabel.Text = v.ToString(); }
+        public void SetBetMoneyLabel(int i) { bet = i; currBetLabel.Text = bet.ToString("C"); }
+
+        public void SetPlayer(bool v) { player = v; }
+
+        public void SetHandValueLabel(string s) { handValueLabel.Text = s; }
 
         public void SetExpandedHand(string s) { printedHandLabel.Text = s; }
 
-        public void SetDealer(bool b) { dealerChip = b; }
+        public void SetDealer(bool b) { dealer = b; }
 
         public void SetSmall(bool b) { small = b; }
 
